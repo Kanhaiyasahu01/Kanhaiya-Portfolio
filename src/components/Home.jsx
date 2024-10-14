@@ -11,10 +11,10 @@ export const Home = () => {
     <div>
         <HeroSection/>
         <About/>
-        <Achievements/>
+        {/* <Achievements/>
         <Skills/>
         <Projects/>
-        <ContactMe/>
+        <ContactMe/> */}
     </div>
   )
 }
