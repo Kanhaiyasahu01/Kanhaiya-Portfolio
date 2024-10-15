@@ -9,11 +9,12 @@ import circleImg from "../assets/userAsset/circle.png";
 import cubeImg from "../assets/userAsset/cube.png";
 import plusImg from "../assets/userAsset/plus.png";
 import zigzagImg from "../assets/userAsset/zigzags.png";
+import pattern from "../assets/pattern.png"
 // import { TypeAnimation } from 'react-type-animation';
 
 export const HeroSection = () => {
   return (
-    <section className="w-full h-[90vh] flex justify-center items-center bg-gradient-to-b from-richblack-900 to-blue-800 relative">
+    <section className="w-full h-[90vh] flex justify-center items-center relative">
       {/* Container */}
       <div className="flex items-center justify-between px-5 w-10/12 mx-auto pb-[5vh] ">
         {/* Left Text Section */}

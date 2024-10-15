@@ -19,7 +19,7 @@ import Vercel from "../assets/stack/Vercel.svg";
 
 export const About = () => {
   return (
-    <div className="bg-white text-richblack-900 py-16 px-8 sm:px-16 lg:px-32">
+    <div className=" text-white py-16 px-8 sm:px-16 lg:px-32">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10">
         {/* Left: Tech Stack Images */}
         <div className="w-full lg:w-1/2 grid grid-cols-3 sm:grid-cols-4 gap-4">

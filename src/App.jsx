@@ -11,7 +11,7 @@ import './App.css'
 function App() {
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-tr from-richblack-900 to-richblue-500 text-white">
+    <div className="w-full min-h-screen text-white bg-gradient-to-br from-blue-800 to-richblack-900">
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
