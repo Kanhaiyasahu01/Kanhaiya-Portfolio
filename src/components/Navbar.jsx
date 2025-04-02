@@ -30,7 +30,7 @@ export const Navbar = () => {
           >
             About
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/achievements"
             className={({ isActive }) =>
               isActive
@@ -39,7 +39,7 @@ export const Navbar = () => {
             }
           >
             Achievements
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="/skills"
             className={({ isActive }) =>

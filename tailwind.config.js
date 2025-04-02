@@ -26,6 +26,9 @@ module.exports = {
         // 900: "#000814",
         900: "#0A0A0A",
       },
+      orange:{
+        100:"#B43A0F",
+      },
       richblue: {
         5: "#ECF5FF",
         25: "#C6D6E1",
