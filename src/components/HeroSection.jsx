@@ -1,5 +1,6 @@
 import React from "react";
-import profileImage from "../assets/Profile.jpg";
+// import profileImage from "../assets/Profile.jpg";
+import profileImage from "../assets/userAsset/Profile.jpg";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
@@ -9,7 +10,7 @@ import homebg from "../assets/home-bg.jpg"
 
 export const HeroSection = () => {
   return (
-    <section className="w-full h-[90vh] flex justify-center items-center relative ">
+    <section className="w-full h-[90vh] flex justify-center items-center relative">
       {/* Container */}
       <div className="flex items-center justify-between px-5 w-10/12 mx-auto pb-[5vh] ">
         {/* Left Text Section */}

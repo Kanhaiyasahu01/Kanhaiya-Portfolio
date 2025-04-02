@@ -11,6 +11,8 @@ import { Navbar } from './components/Navbar'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
 import { Route,Routes } from 'react-router-dom'
+import Footer from "./components/Footer";
+import PortfolioGrid from "./components/Helper/PortfolioGrid";
 import './App.css'
 // import { Main } from './components/Main'
 
@@ -131,12 +133,11 @@ if (init) {
       options={options}
     />
 
-<div className="w-full min-h-screen text-white bg-gradient-to-br from-blue-800 to-richblack-900">
+<div className="w-full min-h-screen text-white">
+  {/* Gradient Background Section */}
+  <div className="h-screen bg-gradient-to-b from-blue-800 to-richblack-900">
     <Navbar />
-    {/* <FloatingIcons></FloatingIcons> */}
-    {/* <Main></Main> */}
-   <div className="h-[90vh]">
-   <Routes>
+    <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/achievements" element={<Achievements />} />
@@ -144,8 +145,25 @@ if (init) {
       <Route path="/projects" element={<Projects />} />
       <Route path="/contact" element={<ContactMe />} />
     </Routes>
-   </div>
-  
+  </div>
+
+  {/* Content Section with solid background */}
+  <div className="bg-richblack-900">
+    <Routes>
+      <Route path="/" element={<PortfolioGrid />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/achievements" element={<Achievements />} />
+      <Route path="/skills" element={<Skills />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/contact" element={<ContactMe />} />
+    </Routes>
+  </div>
+</div>
+
+{/* Footer */}
+  <div>
+  <Footer></Footer>
+    
   </div>
     </div>
   );

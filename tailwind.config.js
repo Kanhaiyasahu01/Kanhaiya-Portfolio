@@ -29,6 +29,14 @@ module.exports = {
       orange:{
         100:"#B43A0F",
       },
+      zinc: {
+    700: "#3F3F46",
+    800: "#27272A",
+    900: "#18181B"
+  },
+  slate: {
+    400: "#94A3B8"
+  },
       richblue: {
         5: "#ECF5FF",
         25: "#C6D6E1",
@@ -43,6 +51,7 @@ module.exports = {
         800: "#01212A",
         900: "#001B22",
       },
+      
       blue: {
         5: "#EAF5FF",
         25: "#B4DAEC",
@@ -57,6 +66,7 @@ module.exports = {
         800: "#022B32",
         900: "#001B1D",
       },
+
       caribbeangreen: {
         5: "#C1FFFD",
         25: "#83F1DE",
@@ -99,6 +109,11 @@ module.exports = {
         800: "#4F0A25",
         900: "#340019",
       },
+      gray: {
+        700: "#374151",
+        800: "#1F2937",
+        900: "#111827"
+      },
       yellow: {
         5: "#FFF970",
         25: "#FFE83D",
@@ -126,6 +141,24 @@ module.exports = {
         700: "#2D2D2D",
         800: "#171717",
         900: "#141414",
+      },
+      red: {
+        500: "#EF4444"
+      },
+      green: {
+        500: "#10B981"
+      },
+      yellow: {
+        500: "#F59E0B"
+      },
+      indigo: {
+        500: "#6366F1"
+      },
+      purple: {
+        500: "#8B5CF6"
+      },
+      orange: {
+        100: "#B43A0F"
       },
       // Colors from the uploaded image
       imageColors: {
