@@ -46,8 +46,6 @@ export const HeroSection = () => {
                 1500,
                 "Software Developer",
                 1500,
-                "Open Source Contributor",
-                1500,
                 "Freelancer",
                 1500,
               ]}

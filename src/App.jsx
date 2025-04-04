@@ -1,41 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use loadSlim, install the "@tsparticles/slim" package too.
+import { About } from "./components/About";
+import { Achievements } from "./components/Achievements";
+import { ContactMe } from "./components/ContactMe";
+import { Home } from "./components/Home";
+import { Navbar } from "./components/Navbar";
+import { Projects } from "./components/Projects";
+import { Skills } from "./components/Skills";
+import { Route, Routes } from "react-router-dom";
 
-import { About } from './components/About'
-import { Achievements } from './components/Achievements'
-import { ContactMe } from './components/ContactMe'
-import { Home } from './components/Home'
-import { Navbar } from './components/Navbar'  
-import { Projects } from './components/Projects'
-import { Skills } from './components/Skills'
-import { Route,Routes } from 'react-router-dom'
+import "./App.css";
 import Footer from "./components/Footer";
-import PortfolioGrid from "./components/Helper/PortfolioGrid";
-import './App.css'
-// import { Main } from './components/Main'
-
-// import bootstrap from "../assets/stack/Bootstrap.svg";
-// import cssPng from "../assets/stack/CSS.png";
-// import ExpressPng from "../assets/stack/Express.png";
-// import gitSvg from "../assets/stack/Git.svg";
-// import GithubSvg from "../assets/stack/Github.svg";
-// import Graphql from "../assets/stack/Graphql.svg";
-// import HTML from "../assets/stack/HTML.png";
-// import Javascript from "../assets/stack/Javascript.svg";
-// import MongoDB from "../assets/stack/MongoDB.svg";
-// import Next from "../assets/stack/Next.svg";
-// import NodeJs from "../assets/stack/NodeJs.svg";
-// import ReactPng from "../assets/stack/React.png";
-// import Redux from "../assets/stack/Redux.svg";
-// import Tailwind from "../assets/stack/Tailwind.png";
-// import Typescript from "../assets/stack/Typescript.svg";
-// import Vercel from "../assets/stack/Vercel.svg";
-
-
-
-
+import { AboutMain } from "./components/AboutMain";
 function App() {
   const [init, setInit] = useState(false);
 
@@ -119,59 +96,40 @@ function App() {
       },
       detectRetina: true,
     }),
-    [],
+    []
   );
 
+  if (init) {
+    return (
+      <div>
+        {/* <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+          className="-z-10"
+        /> */}
 
-  
-if (init) {
-  return (
-    <div>
-      <Particles
-      id="tsparticles"
-      particlesLoaded={particlesLoaded}
-      options={options}
-    />
+        <div className="w-full min-h-screen text-white">
+          {/* Gradient Background Section */}
+          <div className="h-screen bg-gradient-to-b from-blue-800 to-richblack-900">
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<AboutMain />} />
+              <Route path="/achievements" element={<Achievements />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<ContactMe />} />
+            </Routes>
+            <Footer />
+          </div>
+          {/* Content Section with solid background */}
+        </div>
+      </div>
+    );
+  }
 
-<div className="w-full min-h-screen text-white">
-  {/* Gradient Background Section */}
-  <div className="h-screen bg-gradient-to-b from-blue-800 to-richblack-900">
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/achievements" element={<Achievements />} />
-      <Route path="/skills" element={<Skills />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/contact" element={<ContactMe />} />
-    </Routes>
-  </div>
-
-  {/* Content Section with solid background */}
-  <div className="bg-richblack-900">
-    <Routes>
-      <Route path="/" element={<PortfolioGrid />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/achievements" element={<Achievements />} />
-      <Route path="/skills" element={<Skills />} />
-      <Route path="/projects" element={<Projects />} />
-      <Route path="/contact" element={<ContactMe />} />
-    </Routes>
-  </div>
-</div>
-
-{/* Footer */}
-  <div>
-  <Footer></Footer>
-    
-  </div>
-    </div>
-  );
+  return <></>;
 }
 
-return <></>;
-
-  
-}
-
-export default App
+export default App;
