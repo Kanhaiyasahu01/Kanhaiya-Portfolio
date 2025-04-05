@@ -1,63 +1,145 @@
-import React from 'react';
+import React, { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import techstackImg from "../assets/techstack.png"
 
-export const Skills = () => {
-  // Data for the skills section
-  const skillsData = {
-    "Programming Languages": [
-      "C/C++", "JavaScript", "Kotlin", "Java (Familiar)", "Python", "TypeScript"
-    ],
-    "IT Constructs": [
-      "DSA", "OOPS", "Operating System", "DBMS", "Computer Networks"
-    ],
-    "Frameworks/Technologies": [
-      "HTML", "CSS", "React", "TailwindCSS", "Bootstrap", "Django", "Express.js", "Node.js"
-    ],
-    "Databases": ["MySQL", "MongoDB"],
-    "Tools": ["Git", "Visual Studio Code", "Android Studio", "IntelliJ IDEA"]
+import C from "../assets/stack/c.png"
+import Cpp from "../assets/stack/cpp.png"
+import DSA from "../assets/stack/DSA.png"
+import bashImg from "../assets/stack/Bash.svg";
+import cssPng from "../assets/stack/CSS.png";
+import ExpressPng from "../assets/stack/Express.png";
+import gitSvg from "../assets/stack/Git.svg";
+import GithubSvg from "../assets/stack/Github.svg";
+import HTML from "../assets/stack/HTML.png";
+import Javascript from "../assets/stack/Javascript.svg";
+import MongoDB from "../assets/stack/MongoDB.svg";
+import Next from "../assets/stack/Next.svg";
+import NodeJs from "../assets/stack/NodeJs.svg";
+import ReactPng from "../assets/stack/React.png";
+import Redux from "../assets/stack/Redux.svg";
+import Tailwind from "../assets/stack/Tailwind.png";
+import Typescript from "../assets/stack/Typescript.svg";
+import python from "../assets/stack/python.jpg";
+import django from "../assets/stack/django.png";
+import Bootstrap from "../assets/stack/Bootstrap.svg";
+
+
+const Skills = () => {
+  const skills = [
+    { name: "C", icon: C },
+    { name: "C++", icon: Cpp },
+    { name: "Java", icon: Javascript },
+    { name: "Python", icon: python },
+    { name: "DSA", icon: DSA },
+    { name: "HTML", icon: HTML },
+    { name: "CSS", icon: cssPng },
+    { name: "Tailwind CSS", icon: Tailwind },
+    { name: "JavaScript", icon: Javascript },
+    { name: "TypeScript", icon: Typescript },
+    { name: "ReactJS", icon: ReactPng },
+    { name: "NextJS", icon: Next },
+    { name: "Framer Motion", icon: ReactPng },
+    { name: "Shadcn", icon: Javascript },
+    { name: "NodeJS", icon: NodeJs },
+    { name: "ExpressJS", icon: ExpressPng },
+    { name: "MongoDB", icon: MongoDB },
+    { name: "ReduxToolkit", icon: Redux },
+    { name: "Django", icon: django },
+    { name: "Bootstrap", icon: Bootstrap },
+    { name: "Git", icon: gitSvg },
+    { name: "GitHub", icon: GithubSvg },
+    { name: "Postman", icon: Javascript },
+    { name: "Linux", icon: bashImg },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05
+      }
+    }
   };
 
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+
   return (
-    <div className="bg-blue-900 text-white py-16 px-8 sm:px-16 lg:px-32">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-yellow-500 mb-10 text-center">
-          My Skills
-        </h2>
-
-        <div className="relative">
-          {Object.entries(skillsData).map(([category, skills], index) => (
-            <div key={category} className="mb-12 flex items-center justify-between relative border ">
-              {/* Circle for timeline */}
-              <div className="w-1/2 flex justify-center  relative border">
-                {/* Circle */}
-                <div className="w-6 h-6 bg-yellow-500 rounded-full border-4 border-gray-300 relative z-10 "></div>
-                {/* Line connecting the dots */}
-                {index !== Object.entries(skillsData).length - 1 && (
-                  <div className="absolute left-1/2 top-6 h-full w-1 bg-blue-500 transform -translate-x-1/2"></div>
-                )}
-              </div>
-
-              {/* Skill box on the right */}
-              <div className={`w-1/2 pl-12 ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
-                <div className="p-6 border border-gray-300 rounded-lg shadow-lg bg-blue-800 hover:bg-blue-700 transition-transform transform hover:-translate-y-2 duration-300">
-                  <h3 className="text-2xl font-semibold mb-4 hover:text-yellow-400 transition-colors duration-300">
-                    {category}
-                  </h3>
-                  <ul className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                    {skills.map((skill) => (
-                      <li
-                        key={skill}
-                        className="text-lg mb-2 hover:text-yellow-400 transition-colors duration-300"
-                      >
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+    <div ref={ref} className="min-h-screen text-white flex flex-col items-center py-8">
+      <div className="w-full max-w-5xl px-4">
+        <div className="flex flex-col items-center mb-4 relative">
+          <motion.div
+            className="relative w-72 h-72 mb-[-6rem] z-1" // Increased size and negative margin to overlap
+            style={{ rotate }} // Only the image rotates
+          >
+            <div className="absolute inset-0 bg-gradient-radial from-purple-500 to-transparent rounded-full blur-md opacity-50"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="rounded-full flex items-center justify-center">
+                <img src={techstackImg} alt="Tech Stack" className="w-full h-full object-contain opacity-50 " />
               </div>
             </div>
-          ))}
+          </motion.div>
+          
+          {/* Text container - no rotation applied */}
+          <div className="text-center  z-10"> {/* Added margin-top to push text down */}
+            <motion.p
+              className="text-richblack-100 uppercase tracking-widest text-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              I CONSTANTLY TRY TO IMPROVE
+            </motion.p>
+            
+            <motion.h2
+              className="text-5xl font-bold mt-2 mb-8 text-richblack-50 bg-clip-text"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              My Tech Stack
+            </motion.h2>
+          </div>
         </div>
+
+        <motion.div 
+          className="flex flex-wrap justify-center gap-3"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              className="bg-zinc-800 border border-richblack-200 hover:shadow-lg hover:border-blue-400 hover:shadow-blue-500/30 group  border-opacity-50 rounded-full px-4 py-2 flex items-center space-x-2 shadow-lg"
+              whileHover={{ scale: 1.10, rotate: [0, -3, 1, -3, 0] }}
+              whileTap={{ scale: 0.95 }}
+              variants={itemVariants}
+            >
+              <span className="w-6 h-6">
+                <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain" />
+              </span>
+              <span className="text-white">{skill.name}</span>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
 };
+
+export default Skills;

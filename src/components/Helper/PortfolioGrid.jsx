@@ -47,7 +47,7 @@ const PortfolioGrid = () => {
           {/* Collaboration Card */}
           <Link
             to={"/projects"}
-            className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50  rounded-lg p-6 relative overflow-hidden md:col-span-2"
+            className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50  rounded-lg p-6 relative overflow-hidden md:col-span-2 transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500 group "
           >
             <div className="flex mb-6">
               <div className="w-16 h-16 flex items-center justify-center">
@@ -82,11 +82,11 @@ const PortfolioGrid = () => {
                       "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   }}
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 ">
                     <img
                       src={project.img}
                       alt="project"
-                      className="w-full h-full object-cover hover:brightness-110 transition-all"
+                      className="w-full h-full object-cover hover:brightness-110 transition-all opacity-90"
                     />
                   </div>
                 </div>
@@ -125,7 +125,7 @@ const PortfolioGrid = () => {
 
           {/* Time Zone Card */}
 
-          <div className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50 rounded-lg p-6 relative overflow-hidden md:row-span-2">
+          <div className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50 rounded-lg p-6 relative overflow-hidden md:row-span-2 transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500 group">
             <div className="h-full relative flex flex-col justify-between ">
               <div className="text-right ">
                 <h2 className="text-2xl font-bold text-richblack-50">
@@ -187,7 +187,7 @@ const PortfolioGrid = () => {
           {/* Tech Stack Card */}
           <Link
             to={"skills"}
-            className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50 rounded-lg p-2 relative overflow-hidden flex justify-center items-center"
+            className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50 rounded-lg p-2 relative overflow-hidden flex justify-center items-center transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500 group"
           >
             <div className="grid grid-cols-4 gap-2 w-full ">
               {techStack.map((tech, index) => (
@@ -208,7 +208,7 @@ const PortfolioGrid = () => {
           </Link>
 
           {/* Contact Card */}
-          <div className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50 rounded-lg p-6 relative overflow-hidden flex flex-col justify-between">
+          <div className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50 rounded-lg p-6 relative overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500 group">
             <div className="flex justify-center mb-8">
               <div className="relative">
                 <svg

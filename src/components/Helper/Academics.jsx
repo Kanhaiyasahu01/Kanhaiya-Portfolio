@@ -43,7 +43,7 @@ const Academics = () => {
           {educationData.map((item) => (
             <div 
               key={item.id} 
-              className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50 hover:border-blue-700  hover:bod group  p-6 rounded-lg border-l-4 border-l-blue-400  hover:transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/20"
+              className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50  hover:bod group  p-6 rounded-lg border-l-4 border-l-blue-400  hover:transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500 group"
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="p-3 bg-richblack-700 rounded-full">
@@ -52,12 +52,12 @@ const Academics = () => {
            
               </div>
               
-              <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-              <h4 className="text-xl text-gray-300 mb-4">{item.school}</h4>
+              <h3 className="text-2xl font-bold text-richblack-50 mb-2">{item.title}</h3>
+              <h4 className="text-xl text-richblack-50 mb-4">{item.school}</h4>
               
               <div className="mb-4">
                 <div className="flex justify-between mb-1">
-                  <span className="text-gray-400">Performance</span>
+                  <span className="text-richblack-50">Performance</span>
                   <span className="text-blue-400 font-medium">{item.percentage}</span>
                 </div>
                 <div className="w-full bg-richblack-700 rounded-full h-2">
@@ -73,8 +73,8 @@ const Academics = () => {
               </div>
               
               <div className="mt-4">
-                <h5 className="text-gray-400 mb-2">Year</h5>
-                <p className="text-gray-300">{item.year}</p>
+                <h5 className="text-richblack-50 mb-2">Year</h5>
+                <p className="text-richblack-50">{item.year}</p>
               </div>
             </div>
           ))}

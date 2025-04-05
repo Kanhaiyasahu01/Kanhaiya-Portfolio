@@ -15,20 +15,20 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
         {/* Left Section - Name */}
         <div className="flex-1 flex flex-col items-start space-y-2">
-          <h2 className="text-lg font-bold text-richblack-yellow flex justify-center items-center gap-2">
+          <h2 className="text-lg font-bold text-richblack-50 flex justify-center items-center gap-2">
             <span>
               <img className="h-6 w-6" src={logo} alt="Logo" />
             </span>
             Kanhaiya Lal Sahu
           </h2>
           {/* Bottom Line */}
-          <p className="text-sm text-richblack-200 italic mt-2">
+          <p className="text-sm text-richblack-100 italic mt-2">
             Creating the lines of code that turn ideas into reality.
           </p>
         </div>
 
         {/* Middle Section - Social Links */}
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex justify-center text-richblack-50">
           <div className="flex space-x-4">
             <a href="https://github.com/Kanhaiyasahu01" target="_blank" rel="noopener noreferrer">
               <FaGithub className="w-8 h-8" />
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
 
         {/* Right Section - Navigation Links */}
-        <div className="flex-1 flex flex-col items-end space-y-2 text-sm">
+        <div className="flex-1 flex flex-col items-end space-y-2 text-sm text-richblack-50">
           <Link to={'/'} className="hover:text-richblack-yellow transition">
             Home
           </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="text-center text-gray-500 text-xs mt-6">
+      <div className="text-center text-gray-500 text-xs mt-6 text-richblack-100">
         © {new Date().getFullYear()} Kanhaiya Lal Sahu. All rights reserved.
       </div>
     </div>

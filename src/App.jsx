@@ -1,18 +1,17 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use loadSlim, install the "@tsparticles/slim" package too.
-import { About } from "./components/About";
 import { Achievements } from "./components/Achievements";
 import { ContactMe } from "./components/ContactMe";
 import { Home } from "./components/Home";
 import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";
-import { Skills } from "./components/Skills";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import Footer from "./components/Footer";
 import { AboutMain } from "./components/AboutMain";
+import { SkillMain } from "./components/SkillMain";
 function App() {
   const [init, setInit] = useState(false);
 
@@ -117,7 +116,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutMain />} />
               <Route path="/achievements" element={<Achievements />} />
-              <Route path="/skills" element={<Skills />} />
+              <Route path="/skills" element={<SkillMain />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<ContactMe />} />
             </Routes>
