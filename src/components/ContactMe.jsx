@@ -30,16 +30,16 @@ export const ContactMe = () => {
   };
 
   return (
-    <div className="bg-blue-900 text-white py-16 px-8 sm:px-16 lg:px-32">
+    <div className=" text-white py-3 px-8 sm:px-16 lg:px-32">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-yellow-500 mb-8 text-center">
+        <h2 className="text-4xl font-bold text-richblack-50 mb-2">
           Contact Me
         </h2>
-        <p className="text-center mb-12 text-lg">
+        <p className=" mb-6 text-lg text-richblack-100">
           If you have any questions or just want to get in touch, please fill out the form below.
         </p>
 
-        <form onSubmit={onSubmit} className="space-y-6">
+        <form onSubmit={onSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-lg font-semibold mb-2">
               Name
