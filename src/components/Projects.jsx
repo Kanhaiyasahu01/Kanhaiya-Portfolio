@@ -22,7 +22,7 @@ export const Projects = () => {
         "Simplified idea submission with a clean, intuitive design",
         "Enhanced browsing with seamless performance optimization"
       ],
-      gradient:"pink",
+      gradient: "pink",
       github: "https://github.com/yourusername/next-ventures",
       liveUrl: "https://next-venture.vercel.app"
     },
@@ -36,7 +36,7 @@ export const Projects = () => {
         "Project version control and history tracking",
         "Custom code editor with syntax highlighting"
       ],
-      gradient:"green",
+      gradient: "green",
       github: "https://github.com/yourusername/codecolony",
       liveUrl: "https://codecolony-demo.vercel.app"
     },
@@ -50,11 +50,95 @@ export const Projects = () => {
         "Portfolio performance tracking and analysis",
         "Customizable dashboard widgets and alerts"
       ],
-      gradient:"red",
+      gradient: "red",
       github: "https://github.com/yourusername/finance-dashboard",
       liveUrl: "https://finance-dashboard-demo.vercel.app"
     }
   ];
+
+  // Function to get gradient classes based on project gradient value
+  const getGradientClasses = (gradientColor) => {
+    switch (gradientColor) {
+      case 'pink':
+        return "from-richblack-900 to-pink-300";
+      case 'green':
+        return "from-richblack-900 to-green-300";
+      case 'red':
+        return "from-richblack-900 to-red-300";
+      default:
+        return "from-richblack-900 to-pink-300";
+    }
+  };
+
+  // Function to get accent color based on project gradient
+  const getAccentColor = (gradientColor) => {
+    switch (gradientColor) {
+      case 'pink':
+        return "bg-pink-600";
+      case 'green':
+        return "bg-green-600";
+      case 'red':
+        return "bg-red-600";
+      default:
+        return "bg-pink-600";
+    }
+  };
+
+  // Function to get hover accent color based on project gradient
+  const getHoverClass = (gradientColor) => {
+    switch (gradientColor) {
+      case 'pink':
+        return "hover:bg-pink-600";
+      case 'green':
+        return "hover:bg-green-600";
+      case 'red':
+        return "hover:bg-red-600";
+      default:
+        return "hover:bg-pink-600";
+    }
+  };
+
+  // Function to get text accent color
+  const getTextColor = (gradientColor) => {
+    switch (gradientColor) {
+      case 'pink':
+        return "text-pink-500";
+      case 'green':
+        return "text-green-500";
+      case 'red':
+        return "text-red-500";
+      default:
+        return "text-pink-500";
+    }
+  };
+
+  // Function to get bg opacity accent color
+  const getBgOpacityColor = (gradientColor) => {
+    switch (gradientColor) {
+      case 'pink':
+        return "bg-pink-600/70";
+      case 'green':
+        return "bg-green-600/70";
+      case 'red':
+        return "bg-red-600/70";
+      default:
+        return "bg-pink-600/70";
+    }
+  };
+
+  // Function to get border color
+  const getBorderColor = (gradientColor) => {
+    switch (gradientColor) {
+      case 'pink':
+        return "bg-pink-600";
+      case 'green':
+        return "bg-green-600";
+      case 'red':
+        return "bg-red-600";
+      default:
+        return "bg-pink-600";
+    }
+  };
 
   // Navigation functions
   const goToNextProject = () => {
@@ -86,21 +170,29 @@ export const Projects = () => {
     visible: { opacity: 1, scale: 1 }
   };
 
+  // Get current project gradient
+  const currentGradient = getGradientClasses(projects[activeProject].gradient);
+  const currentAccentColor = getAccentColor(projects[activeProject].gradient);
+  const currentHoverClass = getHoverClass(projects[activeProject].gradient);
+  const currentTextColor = getTextColor(projects[activeProject].gradient);
+  const currentBgOpacity = getBgOpacityColor(projects[activeProject].gradient);
+  const currentBorderColor = getBorderColor(projects[activeProject].gradient);
+
   return (
     <div className="min-h-screen text-white py-2">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full h-full flex flex-col">
         {/* Header with title and nav buttons */}
-        <div className="flex flex-col w-1/2 sm:flex-row sm:items-center justify-between  ">
+        <div className="flex flex-col w-1/2 sm:flex-row sm:items-center justify-between">
           <div className="relative">
             <h2 className="text-5xl md:text-4xl font-bold mb-2">My Projects</h2>
-            <div className="h-1 w-24 bg-pink-600"></div>
+            <div className={`h-1 w-24 ${currentAccentColor}`}></div>
           </div>
 
           {/* Navigation Buttons */}
           <div className="flex justify-start sm:justify-center gap-4 text-richblack-50">
             <motion.button
               onClick={goToPrevProject}
-              className="bg-richblack-900 border border-richblack-100 border-opacity-50 hover:bg-pink-600 text-white p-3 rounded-full shadow-lg transition-colors"
+              className={`bg-richblack-900 border border-richblack-100 border-opacity-50 ${currentHoverClass} text-white p-3 rounded-full shadow-lg transition-colors`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Previous project"
@@ -110,7 +202,7 @@ export const Projects = () => {
             
             <motion.button
               onClick={goToNextProject}
-              className="bg-richblack-900 border border-richblack-100 border-opacity-50 hover:bg-pink-600 text-white p-3 rounded-full shadow-lg transition-colors"
+              className={`bg-richblack-900 border border-richblack-100 border-opacity-50 ${currentHoverClass} text-white p-3 rounded-full shadow-lg transition-colors`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Next project"
@@ -123,17 +215,17 @@ export const Projects = () => {
         {/* Main content area */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center flex-grow mt-4">
           {/* Left side - Laptop Frame with Project Image */}
-          <div className="w-full lg:w-3/5 relative border border-richblack-100 border-opacity-50 rounded-2xl ">
+          <div className="w-full lg:w-3/5 relative border border-richblack-100 border-opacity-50 rounded-2xl">
             {/* Outer laptop frame - dark border with rounded corners */}
-            <div className="relative rounded-2xl overflow-hidden bg-black border-8 border-richblack-800 shadow-xl h-[400px] md:h-[450px]"> {/* Increased height */}
-              {/* Laptop inner frame with burgundy gradient background */}
-              <div className="relative rounded-lg overflow-hidden bg-gradient-to-b from-richblack-900 to-pink-300  h-full">
+            <div className="relative rounded-2xl overflow-hidden bg-black border-8 border-richblack-800 shadow-xl h-[400px] md:h-[450px]">
+              {/* Laptop inner frame with dynamic gradient background */}
+              <div className={`relative rounded-lg overflow-hidden bg-gradient-to-b ${currentGradient} h-full`}>
                 {/* Inner screen frame with darker border */}
 
                 <div className='flex justify-center items-center mt-3 text-2xl p-5 text-richblack-50'>
                   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, seamless?</p>
                 </div>
-                <div className="absolute  overflow-hidden rounded-lg shadow-inner h-full flex items-end -bottom-5 px-5 hover:p-1 hover:-rotate-2 transition-all duration-300"> {/* Adjusted to full height and flex items-end */}
+                <div className="absolute overflow-hidden rounded-lg shadow-inner h-full flex items-end -bottom-5 px-5 hover:p-1 hover:-rotate-2 transition-all duration-300">
                   {/* Actual screen content */}
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -142,9 +234,9 @@ export const Projects = () => {
                       animate="visible"
                       exit="hidden"
                       variants={imageVariants}
-                      className="w-full relative bg-black overflow-hidden rounded-md "
+                      className="w-full relative bg-black overflow-hidden rounded-md"
                     >
-                      <div className='border border-richblack-100 border-opacity-50 '>
+                      <div className='border border-richblack-100 border-opacity-50'>
                       <img 
                         src={projects[activeProject].image} 
                         alt={projects[activeProject].title} 
@@ -157,7 +249,7 @@ export const Projects = () => {
                             href={projects[activeProject].liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-pink-600/70 backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-3 text-white text-sm md:text-base font-medium flex items-center gap-2"
+                            className={`${currentBgOpacity} backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-3 text-white text-sm md:text-base font-medium flex items-center gap-2`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -184,9 +276,9 @@ export const Projects = () => {
                 className="space-y-4 md:space-y-6"
               >
                 <div className="flex items-center gap-2">
-                  <div className="h-px flex-1 bg-pink-600/30"></div>
+                  <div className={`h-px flex-1 ${currentAccentColor}/30`}></div>
                   <motion.span 
-                    className="text-sm font-medium text-pink-500"
+                    className={`text-sm font-medium ${currentTextColor}`}
                     variants={featureVariants}
                   >
                     Featured Project
@@ -217,7 +309,7 @@ export const Projects = () => {
                       className="flex items-start gap-2 md:gap-3"
                       variants={featureVariants}
                     >
-                      <div className="text-pink-500 mt-1">
+                      <div className={currentTextColor}>
                         <span className="text-lg">+</span>
                       </div>
                       <p className="text-gray-300 text-sm md:text-base">{feature}</p>
@@ -270,16 +362,19 @@ export const Projects = () => {
             
             {/* Project Navigation Dots */}
             <div className="flex justify-center gap-2 md:gap-3 mt-6 md:mt-8">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveProject(index)}
-                  className={`w-2 md:w-3 h-2 md:h-3 rounded-full transition-all ${
-                    activeProject === index ? "bg-pink-600 w-6 md:w-8" : "bg-gray-600"
-                  }`}
-                  aria-label={`View project ${index + 1}`}
-                />
-              ))}
+              {projects.map((project, index) => {
+                const dotColor = getBorderColor(project.gradient);
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveProject(index)}
+                    className={`w-2 md:w-3 h-2 md:h-3 rounded-full transition-all ${
+                      activeProject === index ? `${dotColor} w-6 md:w-8` : "bg-gray-600"
+                    }`}
+                    aria-label={`View project ${index + 1}`}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
