@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Github, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import your project images
-import p1 from "../assets/project/studyNotion1.png";
-import p2 from "../assets/project/studyNotion2.png";
-import p3 from "../assets/project/studyNotion3.png";
+import p1 from "../assets/project/aiContentCrafter.png";
+import p2 from "../assets/project/assetmate.png";
+import p3 from "../assets/project/vaayu.png";
+import p4 from "../assets/project/studyNotion2.png";
 
 export const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
@@ -13,46 +14,60 @@ export const Projects = () => {
   // Project data
   const projects = [
     {
-      title: "Next Ventures",
-      description: "Developed a platform for virtual pitch competitions using Next.js 15, enabling smooth idea sharing and exploration with optimal performance.",
+      title: "AI Content Crafter",
+      description: "Developed an AI-powered platform to generate tailored content from user prompts using Next.js.",
       image: p1,
-      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "Auth.js", "Sanity CMS"],
+      technologies: ["Next.js", "PostgreSQL", "TypeScript", "ShadCN", "TailwindCSS"],
       features: [
-        "Leveraged Partial Prerendering and After for faster loading",
-        "Simplified idea submission with a clean, intuitive design",
-        "Enhanced browsing with seamless performance optimization"
+        "Integrated Google Gemini AI API for intelligent, context-aware content generation.",
+        "Implemented Clerk for secure authentication, authorization, and user management.",
+        "Offers 50+ templates for content creation",
       ],
-      gradient: "pink",
-      github: "https://github.com/yourusername/next-ventures",
-      liveUrl: "https://next-venture.vercel.app"
+      gradient: "purple", // pink
+      github: "https://github.com/Kanhaiyasahu01/AI-Content-Crafter",
+      liveUrl: "https://ai-content-crafter-kanhaiya.vercel.app/"
     },
     {
-      title: "Code Colony",
-      description: "A collaborative coding platform for developers to share and work on projects together in real-time.",
+      title: "Asset Mate",
+      description: "A Comprehensive Dashboard for Inventory & Asset Management.",
       image: p2,
-      technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Express", "GROQ", "Sentry"],
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "TailwindCSS",],
       features: [
-        "Real-time code collaboration with multiple users",
-        "Project version control and history tracking",
-        "Custom code editor with syntax highlighting"
+        "Streamlines orders, stock tracking, vendor coordination, and warehouse operations.",
+        "Enhances efficiency, reduces manual work, and improves data accuracy by 30%.",
+        "Provides secure authentication and role-based access for Admin, Sales, and other users."
       ],
-      gradient: "green",
-      github: "https://github.com/yourusername/codecolony",
-      liveUrl: "https://codecolony-demo.vercel.app"
+      gradient: "zinc", // green
+      github: "https://github.com/Kanhaiyasahu01/AssetMate-TLE_Smashers-",
+      liveUrl: "https://assetmate-kanhaiya.netlify.app/"
     },
     {
-      title: "Finance Dashboard",
-      description: "An intuitive financial analytics dashboard for tracking investments and monitoring market trends.",
-      image: p3,
-      technologies: ["Next.js", "D3.js", "Tailwind CSS", "Prisma", "PostgreSQL", "Markdown", "TypeScript"],
-      features: [
-        "Interactive data visualization with real-time updates",
-        "Portfolio performance tracking and analysis",
-        "Customizable dashboard widgets and alerts"
+      "title": "Vaayu",
+      "description": "A Real-Time Air Pollution Monitoring System.",
+      "image": p3,
+      "technologies": ["React.js", "Redux", "TailwindCSS","OpenWeather API"],
+      "features": [
+        "Provides real-time air quality insights with automatic 10-minute updates.",
+        "Integrates Geolocation API for precise, location-based AQI data retrieval.",
+        "Displays interactive charts, graphs, and heatmaps for enhanced data visualization."
       ],
-      gradient: "red",
-      github: "https://github.com/yourusername/finance-dashboard",
-      liveUrl: "https://finance-dashboard-demo.vercel.app"
+      "gradient": "blue", // blue
+      "github": "https://github.com/Kanhaiyasahu01/Vaayu-TLE_smashers",
+      "liveUrl": "https://vaayu-tle-smashers01.netlify.app/"
+    },
+    {
+      "title": "Study Notion",
+      "description": "Ed-Tech Platform for Course Management and Learning.",
+      "image": p4,
+      "technologies": ["React.js", "TailwindCSS", "Node.js", "Express.js", "MongoDB"],
+      "features": [
+        "Developed an interactive learning platform with dynamic front-end using ReactJS and Tailwind CSS.",
+        "Implemented secure authentication, payment integration, and cloud storage for seamless user experience.",
+        "Built a robust course management system with instructor insights and analytics."
+      ],
+      "gradient": "pink", // blue
+      "github": "https://github.com/Kanhaiyasahu01/Study-Notion-Kanhaiya01",
+      "liveUrl": "https://study-notion-frontend-kanhaiya01.vercel.app/"
     }
   ];
 
@@ -65,12 +80,17 @@ export const Projects = () => {
         return "from-richblack-900 to-green-300";
       case 'red':
         return "from-richblack-900 to-red-300";
+      case 'purple':
+        return "from-richblack-900 to-purple-900";
+      case 'zinc':
+        return "from-richblack-900 to-zinc-400";
+      case 'blue':
+        return "from-richblack-900 to-blue-300";
       default:
         return "from-richblack-900 to-pink-300";
     }
   };
 
-  // Function to get accent color based on project gradient
   const getAccentColor = (gradientColor) => {
     switch (gradientColor) {
       case 'pink':
@@ -79,12 +99,17 @@ export const Projects = () => {
         return "bg-green-600";
       case 'red':
         return "bg-red-600";
+      case 'purple':
+        return "bg-purple-600";
+      case 'zinc':
+        return "bg-zinc-400";
+      case 'blue':
+        return "bg-blue-600";
       default:
         return "bg-pink-600";
     }
   };
 
-  // Function to get hover accent color based on project gradient
   const getHoverClass = (gradientColor) => {
     switch (gradientColor) {
       case 'pink':
@@ -93,12 +118,17 @@ export const Projects = () => {
         return "hover:bg-green-600";
       case 'red':
         return "hover:bg-red-600";
+      case 'purple':
+        return "hover:bg-purple-600";
+      case 'zinc':
+        return "hover:bg-zinc-600";
+      case 'blue':
+        return "hover:bg-blue-600";
       default:
         return "hover:bg-pink-600";
     }
   };
 
-  // Function to get text accent color
   const getTextColor = (gradientColor) => {
     switch (gradientColor) {
       case 'pink':
@@ -107,12 +137,37 @@ export const Projects = () => {
         return "text-green-500";
       case 'red':
         return "text-red-500";
+      case 'purple':
+        return "text-purple-700";
+      case 'zinc':
+        return "text-zinc-400";
+      case 'blue':
+        return "text-richblue-100";
       default:
         return "text-pink-500";
     }
   };
 
-  // Function to get bg opacity accent color
+  // New function to get icon color based on project gradient
+  const getIconColor = (gradientColor) => {
+    switch (gradientColor) {
+      case 'pink':
+        return "text-pink-400";
+      case 'green':
+        return "text-green-400";
+      case 'red':
+        return "text-red-400";
+      case 'purple':
+        return "text-purple-500";
+      case 'zinc':
+        return "text-zinc-300";
+      case 'blue':
+        return "text-blue-400";
+      default:
+        return "text-pink-400";
+    }
+  };
+
   const getBgOpacityColor = (gradientColor) => {
     switch (gradientColor) {
       case 'pink':
@@ -121,12 +176,17 @@ export const Projects = () => {
         return "bg-green-600/70";
       case 'red':
         return "bg-red-600/70";
+      case 'purple':
+        return "bg-purple-900/70";
+      case 'zinc':
+        return "bg-zinc-700/70";
+      case 'blue':
+        return "bg-blue-600/70";
       default:
         return "bg-pink-600/70";
     }
   };
 
-  // Function to get border color
   const getBorderColor = (gradientColor) => {
     switch (gradientColor) {
       case 'pink':
@@ -135,6 +195,12 @@ export const Projects = () => {
         return "bg-green-600";
       case 'red':
         return "bg-red-600";
+      case 'purple':
+        return "bg-purple-800";
+      case 'zinc':
+        return "bg-zinc-700";
+      case 'blue':
+        return "bg-blue-600";
       default:
         return "bg-pink-600";
     }
@@ -175,6 +241,7 @@ export const Projects = () => {
   const currentAccentColor = getAccentColor(projects[activeProject].gradient);
   const currentHoverClass = getHoverClass(projects[activeProject].gradient);
   const currentTextColor = getTextColor(projects[activeProject].gradient);
+  const currentIconColor = getIconColor(projects[activeProject].gradient);
   const currentBgOpacity = getBgOpacityColor(projects[activeProject].gradient);
   const currentBorderColor = getBorderColor(projects[activeProject].gradient);
 
@@ -197,7 +264,7 @@ export const Projects = () => {
               whileTap={{ scale: 0.9 }}
               aria-label="Previous project"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={20} className={currentIconColor} />
             </motion.button>
             
             <motion.button
@@ -207,7 +274,7 @@ export const Projects = () => {
               whileTap={{ scale: 0.9 }}
               aria-label="Next project"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={20} className={currentIconColor} />
             </motion.button>
           </div>
         </div>
@@ -220,10 +287,21 @@ export const Projects = () => {
             <div className="relative rounded-2xl overflow-hidden bg-black border-8 border-richblack-800 shadow-xl h-[400px] md:h-[450px]">
               {/* Laptop inner frame with dynamic gradient background */}
               <div className={`relative rounded-lg overflow-hidden bg-gradient-to-b ${currentGradient} h-full`}>
-                {/* Inner screen frame with darker border */}
-
-                <div className='flex justify-center items-center mt-3 text-2xl p-5 text-richblack-50'>
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, seamless?</p>
+                {/* Dynamic content header bar */}
+                <div className='flex justify-center items-center mt-3 text-xl p-5 text-richblack-50'>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeProject}
+                      initial="hidden"
+                      animate="visible"
+                      exit="hidden"
+                      variants={featureVariants}
+                      className="text-center"
+                    >
+                      <p className="font-semibold text-2xl">{projects[activeProject].title}</p>
+                      <p className="text-sm opacity-80 mt-1">Built with {projects[activeProject].technologies.slice(0, 3).join(", ")}</p>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
                 <div className="absolute overflow-hidden rounded-lg shadow-inner h-full flex items-end -bottom-5 px-5 hover:p-1 hover:-rotate-2 transition-all duration-300">
                   {/* Actual screen content */}
@@ -249,11 +327,11 @@ export const Projects = () => {
                             href={projects[activeProject].liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`${currentBgOpacity} backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-3 text-white text-sm md:text-base font-medium flex items-center gap-2`}
+                            className={`${currentBgOpacity} backdrop-blur-sm mb-2 rounded-full px-4 py-2 md:px-6 md:py-3 text-white text-sm md:text-base font-medium flex items-center gap-2`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            See Website <ArrowRight size={16} />
+                            See Website <ArrowRight size={16} className="font-bold" />
                           </motion.a>
                         </div>
                       </div>
@@ -286,14 +364,14 @@ export const Projects = () => {
                 </div>
                 
                 <motion.h3 
-                  className="text-2xl md:text-3xl font-bold"
+                  className="text-2xl md:text-3xl font-bold text-richblack-50"
                   variants={featureVariants}
                 >
                   {projects[activeProject].title}
                 </motion.h3>
                 
                 <motion.p 
-                  className="text-gray-300 text-sm md:text-base"
+                  className="text-gray-300 text-sm md:text-base text-richblack-50"
                   variants={featureVariants}
                 >
                   {projects[activeProject].description}
@@ -306,11 +384,11 @@ export const Projects = () => {
                   {projects[activeProject].features.map((feature, index) => (
                     <motion.div 
                       key={index}
-                      className="flex items-start gap-2 md:gap-3"
+                      className="flex items-start gap-2 md:gap-3 text-richblack-50"
                       variants={featureVariants}
                     >
                       <div className={currentTextColor}>
-                        <span className="text-lg">+</span>
+                        <span className="text-lg font-bold">+</span>
                       </div>
                       <p className="text-gray-300 text-sm md:text-base">{feature}</p>
                     </motion.div>
@@ -324,7 +402,7 @@ export const Projects = () => {
                   {projects[activeProject].technologies.map((tech, index) => (
                     <motion.span
                       key={index}
-                      className="bg-gray-800 text-gray-200 px-2 py-1 md:px-3 rounded-full text-xs md:text-sm"
+                      className="bg-gray-800 text-gray-200 px-2 py-1 md:px-3 rounded-full text-xs md:text-sm text-richblack-50"
                       variants={techBadgeVariants}
                     >
                       {tech}
@@ -340,21 +418,21 @@ export const Projects = () => {
                     href={projects[activeProject].github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className={`${currentIconColor} hover:text-white transition-colors border-${currentIconColor} border rounded-full p-1 opacity-80`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <Github size={20} />
+                    <Github size={24} strokeWidth={2.5} />
                   </motion.a>
                   <motion.a
                     href={projects[activeProject].liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className={`${currentIconColor} hover:text-white transition-colors border-${currentIconColor} border rounded-full p-1 opacity-80`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <ExternalLink size={20} />
+                    <ExternalLink size={24} strokeWidth={2.5} />
                   </motion.a>
                 </motion.div>
               </motion.div>
