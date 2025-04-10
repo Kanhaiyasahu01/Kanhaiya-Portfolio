@@ -1,82 +1,210 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-export const Achievements = () => {
+export default function Achievements() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
   const achievements = [
-    "1st Position in Hackovation 2024 (Inter-college hackathon)",
-    "Secured 2nd Position in IEEE ICECCT 'Wait Now' 2024 project competition",
-    "2nd position in Inter-College Coding Contest (Clash of Code)",
-    "LeetCode Rating: 1820 (Ranked in the top 8% of users)",
-    "Global Rank 792 in LeetCode Weekly 399 Contest",
-    "Global Rank 689 at CodeChef Starters 133 among 40,000+ participants",
-    "2 Star coder and 1500+ rated on Codechef",
-    "5 Star rated in C++ at Hackerrank"
+    {
+      id: 1,
+      icon: "💻",
+      title: "Active Developer",
+      description: "Dedicated to enhancing technical skills and creativity by contributing to real world projects.",
+      stat: "200+",
+      suffix: "Commits",
+      linkto: "https://github.com/Kanhaiyasahu01",
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      id: 2,
+      icon: "🚀",
+      title: "LeetCode (Problem Solver)",
+      description: "Solved 500+ DSA problems on Leetcode and 1000+ problems on platforms like LC, GFG, Codeforces, Codechef etc.",
+      stat: "500+",
+      linkto: "https://leetcode.com/u/kanhaiyasahu01/",
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      id: 3,
+      icon: "🏆",
+      title: "Ideathon Champion",
+      description: "Achieved top honors with a 1st Rank in the Ideathon at LCIT College, Bilaspur.",
+      stat: "1st",
+      suffix: "Place",
+      linkto: "https://drive.google.com/file/d/10S6BMR1Qu0Xrtz1RazOsSx-G8-x6p876/view",
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      id: 4,
+      icon: "🥈",
+      title: "Hackathon Runner-up",
+      description: "Claimed 2nd position in the 'IEEE ICECCT WAIT NOW' project competition by CSVTU Bhilai.",
+      stat: "2nd",
+      suffix: "Place",
+      linkto: "https://drive.google.com/file/d/1-diITWjQBVJvE_Y92jFtpco5gVKzN7ZV/view",
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      id: 5,
+      icon: "🌟",
+      title: "App Development Lead",
+      description: "Selected for the position of App Development Lead by the Google Developer Student Club, Bilaspur.",
+      stat: "Lead",
+      suffix: "",
+      color: "from-emerald-500 to-teal-600"
+    }
   ];
 
-  const animationVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.2,
-        duration: 0.6,
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    beforeChange: (current, next) => setActiveSlide(next),
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
       },
-    }),
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ],
+    customPaging: (i) => (
+      <div className={`w-3 h-3 mx-1 rounded-full transition-all duration-300 ${i === activeSlide ? 'bg-white scale-125' : 'bg-gray-400'}`} />
+    ),
+    dotsClass: "slick-dots custom-dots flex justify-center items-center mt-8"
   };
 
   return (
-    <div className="bg-white text-richblack-900 py-16 px-8 sm:px-16 lg:px-32">
-      <h2 className="text-4xl font-bold text-yellow-500 mb-10 text-center">
-        Achievements
-      </h2>
+    <div className="w-full bg-richblack-900 py-16">
+      <div className="max-w-6xl mx-auto ">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h2 className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 text-5xl font-extrabold mb-4">Milestones & Achievements</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto mb-6"></div>
+          <p className="text-richblack-300 max-w-4xl mx-auto text-lg">
+            A showcase of my technical journey and accomplishments that highlight my growth and expertise in the world of software development.
+          </p>
+        </div>
 
-      <motion.div 
-        initial="hidden" 
-        animate="visible" 
-        className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8"
-      >
-        {achievements.map((achievement, index) => (
-          <motion.div
-            key={index}
-            custom={index}
-            variants={animationVariants}
-            className="p-6 border border-gray-300 rounded-lg shadow-md bg-white hover:shadow-lg transition-shadow duration-300"
-          >
-            <p className="text-lg text-gray-700">
-              {achievement}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
+        {/* Carousel */}
+        <Slider {...settings} className="achievements-slider">
+          {achievements.map((achievement, index) => (
+            <div key={achievement.id} className="px-4 py-2 h-full">
+              <div 
+                className={`relative overflow-hidden bg-gradient-to-r ${achievement.color} rounded-xl shadow-xl p-6 h-72 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-teal-400 ${achievement.linkto ? 'cursor-pointer' : ''}`}
+                onClick={() => achievement.linkto && window.open(achievement.linkto, '_blank')}
+              >
+                {/* Link Icon */}
+                {achievement.linkto && (
+                  <div className="absolute top-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                )}
 
-      {/* Links */}
-      <div className="mt-12 text-center">
-        <a
-          href="https://leetcode.com/profile" // LeetCode Profile link
-          className="text-blue-500 hover:text-blue-700 mx-2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LeetCode Profile
-        </a>
-        <a
-          href="https://codechef.com/profile" // CodeChef Profile link
-          className="text-blue-500 hover:text-blue-700 mx-2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          CodeChef Profile
-        </a>
-        <a
-          href="https://hackerrank.com/profile" // Hackerrank Profile link
-          className="text-blue-500 hover:text-blue-700 mx-2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hackerrank Profile
-        </a>
+                {/* Background pattern */}
+                <div className="absolute top-0 right-0 opacity-20 w-40 h-40 transform translate-x-8 -translate-y-8">
+                  <div className="w-full h-full rounded-full bg-white"></div>
+                </div>
+                
+                {/* Floating particles */}
+                <div className="absolute w-3 h-3 rounded-full bg-white opacity-30 top-1/4 left-1/4 animate-pulse"></div>
+                <div className="absolute w-2 h-2 rounded-full bg-white opacity-20 bottom-1/3 right-1/3 animate-ping"></div>
+                
+                {/* Content */}
+                <div className="relative flex flex-col justify-between h-full z-10">
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <span className="text-5xl mr-4 transform group-hover:scale-110 transition-transform duration-300">{achievement.icon}</span>
+                      <h3 className="text-2xl font-bold text-richblack-50">{achievement.title}</h3>
+                    </div>
+                    <p className="text-richblack-100 font-light">{achievement.description}</p>
+                  </div>
+                  
+                  <div className="flex items-baseline mt-4">
+                    <span className="text-4xl font-extrabold text-white drop-shadow-md">{achievement.stat}</span>
+                    {achievement.suffix && (
+                      <span className="ml-2 text-xl text-richblack-100">{achievement.suffix}</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+
+        {/* Additional Content */}
+        <div className="mt-16 grid md:grid-cols-2 gap-8 text-gray-300">
+          <div className="bg-zinc-900 backdrop-blur-sm p-6 rounded-lg border border-gray-700 border-opacity-60 transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500/30 group">
+            <h3 className="text-xl font-bold mb-4 text-richblack-100">Why These Achievements Matter</h3>
+            <p className="text-richblack-300">These milestones represent my commitment to continuous learning and excellence in software development. Each achievement has contributed to building a well-rounded skill set that combines algorithmic thinking, practical implementation, and creative problem-solving.</p>
+          </div>
+          <div className="bg-zinc-900 backdrop-blur-sm p-6 rounded-lg border border-gray-700 border-opacity-60 transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500/30 group">
+            <h3 className="text-xl font-bold mb-4 text-richblack-100">What's Next</h3>
+            <p className="text-richblack-300">I'm constantly pushing my boundaries and seeking new challenges. My next goals include mastering problem solving, contributing to major open-source projects, and building innovative solutions that make a real difference in how people interact with technology committing to continuous learning to stay ahead in the ever-evolving tech landscape.</p>
+          </div>
+        </div>
       </div>
+
+      {/* Custom CSS */}
+      <style jsx>{`
+        .achievements-slider .slick-track {
+          display: flex !important;
+        }
+        
+        .achievements-slider .slick-slide {
+          height: inherit !important;
+          display: flex !important;
+        }
+        
+        .achievements-slider .slick-slide > div {
+          display: flex;
+          height: 100%;
+          width: 100%;
+        }
+        
+        /* Override slick arrow styles */
+        .achievements-slider .slick-prev:before, 
+        .achievements-slider .slick-next:before {
+          color: white;
+          font-size: 24px;
+        }
+        
+        .achievements-slider .slick-prev, 
+        .achievements-slider .slick-next {
+          z-index: 10;
+        }
+        
+        .achievements-slider .slick-prev {
+          left: -10px;
+        }
+        
+        .achievements-slider .slick-next {
+          right: -10px;
+        }
+        
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+      `}</style>
     </div>
   );
-};
+}

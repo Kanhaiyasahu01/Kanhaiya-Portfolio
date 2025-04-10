@@ -246,7 +246,7 @@ export const Projects = () => {
   const currentBorderColor = getBorderColor(projects[activeProject].gradient);
 
   return (
-    <div className="min-h-screen text-white py-2">
+    <div className=" text-white py-2 mb-8">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full h-full flex flex-col">
         {/* Header with title and nav buttons */}
         <div className="flex flex-col w-1/2 sm:flex-row sm:items-center justify-between">

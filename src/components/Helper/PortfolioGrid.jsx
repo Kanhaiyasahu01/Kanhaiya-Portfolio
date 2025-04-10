@@ -243,6 +243,7 @@ const PortfolioGrid = () => {
                 Connect me on
                 <a
                   href="https://www.linkedin.com/in/kanhaiyasahu01/"
+                  target="_blank"
                   className="text-blue-400 hover:underline flex items-center"
                 >
                   <FaLinkedin className="ml-1" />

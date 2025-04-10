@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use loadSlim, install the "@tsparticles/slim" package too.
-import { Achievements } from "./components/Achievements";
 import { ContactMe } from "./components/ContactMe";
+import Achievements from "./components/Achievements";
 import { Home } from "./components/Home";
 import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";

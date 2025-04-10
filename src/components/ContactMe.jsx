@@ -51,10 +51,10 @@ export const ContactMe = () => {
           {/* Left Column - Text Content with fade-in animation */}
           <div className={`w-full md:w-1/2 text-white transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="space-y-6 text-blue-100">
-              <h1 className="text-4xl md:text-5xl font-bold text-teal-200 mb-2 animate-fadeIn">
+              <h1 className="text-4xl md:text-5xl font-bold text-teal-200 mb-2 animate-fadeIn text-richblack-50">
                 Get in touch
               </h1>
-              <h2 className="text-4xl md:text-5xl font-bold text-teal-200 mb-6 animate-fadeIn animation-delay-200">
+              <h2 className="text-4xl md:text-5xl font-bold text-teal-200 mb-6 animate-fadeIn animation-delay-200 text-richblack-50">
                 with me.
               </h2>
               <p className="text-lg md:text-xl font-medium text-teal-300 mb-8 animate-fadeIn animation-delay-400 text-richblack-50">
@@ -200,7 +200,7 @@ export const ContactMe = () => {
         type="submit"
         disabled={isSubmitting}
         className="w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-md 
-                 shadow-md hover:bg-blue-500 hover:scale-105 
+                 hover:bg-blue-500 hover:scale-105 
                  transition-all duration-300 
                  disabled:bg-blue-300 disabled:cursor-not-allowed
                  transform hover:-translate-y-1 

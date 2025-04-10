@@ -115,6 +115,7 @@ export const HeroSection = () => {
       <div className="absolute top-1/2 right-10 transform -translate-y-1/2 space-y-4 text-white">
         <a
           href="https://www.linkedin.com/in/kanhaiyasahu01/"
+          target="_blank"
           className="block p-3 bg-blue-600 rounded-full hover:bg-blue-100 transition"
         >
           <FaLinkedin className="text-white text-2xl" />
@@ -122,6 +123,7 @@ export const HeroSection = () => {
 
         <a
           href="https://github.com/Kanhaiyasahu01"
+          target="_blank"
           className="block p-3 bg-blue-600 rounded-full hover:bg-pink-500 transition"
         >
           {/* Add your Dribbble icon here */}
@@ -129,6 +131,7 @@ export const HeroSection = () => {
         </a>
         <a
           href="https://leetcode.com/u/kanhaiyasahu01/"
+          target="_blank"
           className="block p-3 bg-blue-600 rounded-full hover:bg-yellow-300 transition"
         >
           {/* Add your GitHub icon here */}

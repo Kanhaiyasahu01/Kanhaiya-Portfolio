@@ -49,7 +49,6 @@ const Skills = () => {
     { name: "Git", icon: gitSvg },
     { name: "GitHub", icon: GithubSvg },
     { name: "Postman", icon: Javascript },
-    { name: "Linux", icon: bashImg },
   ];
 
   const containerVariants = {
@@ -79,7 +78,7 @@ const Skills = () => {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
-    <div ref={ref} className="min-h-screen text-white flex flex-col items-center py-8">
+    <div ref={ref} className=" text-white flex flex-col items-center py-8 mb-10 h-full ">
       <div className="w-full max-w-5xl px-4">
         <div className="flex flex-col items-center mb-4 relative">
           <motion.div
