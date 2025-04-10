@@ -27,7 +27,7 @@ const CircularAnimation = () => {
     ];
 
     return (
-        <div className="relative w-80 h-80 flex flex-col items-center justify-center">
+        <div className="relative w-32 h-32 sm:w-64 sm:h-64 md:w-64 md:h-64 lg:h-64 lg:w-64 flex flex-col items-center justify-center mt-6 md:mt-0">
             <div className="relative w-full h-full flex items-center justify-center">
                 {images.map((img, i) => {
                     const positionIndex = (i - index + images.length) % images.length;
@@ -37,7 +37,7 @@ const CircularAnimation = () => {
                         <motion.img
                             key={i}
                             src={img}
-                            className="absolute w-24 h-24 md:w-32 md:h-32 rounded-full"
+                            className="absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full"
                             style={{ zIndex: positionIndex === 3 ? 10 : 5 }} // Keep bigger image on top
                             animate={{ x, y, scale, opacity: positionIndex === 3 ? 1 : 0.7 }}
                             transition={{ duration: 1.2 }}

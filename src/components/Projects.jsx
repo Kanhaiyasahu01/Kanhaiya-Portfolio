@@ -247,11 +247,23 @@ export const Projects = () => {
 
   return (
     <div className=" text-white py-2 mb-8">
+
+<div className="absolute inset-0 overflow-hidden z-0">
+        {/* Large blue gradient circle/blob */}
+        <div className="absolute top-16 -left-20 w-96 h-96 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-700/20 blur-3xl"></div>
+        
+        {/* Smaller purple-blue gradient blob */}
+        <div className="absolute bottom-10 -left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-richblue-600/20 to-blue-400/10 blur-3xl"></div>
+        
+        {/* Medium size blue gradient in center-right */}
+        <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-gradient-to-bl from-blue-300/20 to-indigo-500/10 blur-3xl"></div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full h-full flex flex-col">
+      
         {/* Header with title and nav buttons */}
-        <div className="flex flex-col w-1/2 sm:flex-row sm:items-center justify-between">
+        <div className="flex flex-col w-1/2 sm:flex-row sm:items-center justify-between gap-2 z-10 mt-3">
           <div className="relative">
-            <h2 className="text-5xl md:text-4xl font-bold mb-2">My Projects</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-2">My Projects</h2>
             <div className={`h-1 w-24 ${currentAccentColor}`}></div>
           </div>
 
@@ -280,13 +292,14 @@ export const Projects = () => {
         </div>
         
         {/* Main content area */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center flex-grow mt-4">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center flex-grow mt-4 z-10">
+        
           {/* Left side - Laptop Frame with Project Image */}
           <div className="w-full lg:w-3/5 relative border border-richblack-100 border-opacity-50 rounded-2xl">
             {/* Outer laptop frame - dark border with rounded corners */}
-            <div className="relative rounded-2xl overflow-hidden bg-black border-8 border-richblack-800 shadow-xl h-[400px] md:h-[450px]">
+            <div className="relative rounded-2xl overflow-hidden bg-black border-8 border-richblack-800 shadow-xl h-[200px] md:h-[450px]">
               {/* Laptop inner frame with dynamic gradient background */}
-              <div className={`relative rounded-lg overflow-hidden bg-gradient-to-b ${currentGradient} h-full`}>
+              <div className={`relative rounded-lg overflow-hidden bg-gradient-to-b ${currentGradient} h-full md:h-full `}>
                 {/* Dynamic content header bar */}
                 <div className='flex justify-center items-center mt-3 text-xl p-5 text-richblack-50'>
                   <AnimatePresence mode="wait">

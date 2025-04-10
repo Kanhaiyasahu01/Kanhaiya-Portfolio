@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { GraduationCap, BookOpen, Award } from 'lucide-react';
 
 const Academics = () => {
@@ -32,24 +33,50 @@ const Academics = () => {
     }
   ];
 
+  // Animation variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" },
+  };
+
+  const staggerChildren = {
+    animate: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   return (
     <section className="bg-richblack-900 py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-bold text-white mb-12">
+      <motion.div
+        className="max-w-6xl mx-auto"
+        initial="initial"
+        animate="animate"
+        variants={staggerChildren}
+      >
+        <motion.h2
+          className="text-5xl font-bold text-white mb-12"
+          variants={fadeInUp}
+        >
           Academic <span className="text-blue-400">Journey</span>
-        </h2>
+        </motion.h2>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          variants={staggerChildren}
+        >
           {educationData.map((item) => (
-            <div 
-              key={item.id} 
-              className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50  hover:bod group  p-6 rounded-lg border-l-4 border-l-blue-400  hover:transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500 group"
+            <motion.div
+              key={item.id}
+              className="bg-zinc-900 bg-opacity-50 border border-zinc-700 border-opacity-50 hover:bod group p-6 rounded-lg border-l-4 border-l-blue-400 hover:transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:border-richblue-400 hover:shadow-richblue-500"
+              variants={fadeInUp}
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="p-3 bg-richblack-700 rounded-full">
                   {item.icon}
                 </div>
-           
               </div>
               
               <h3 className="text-2xl font-bold text-richblack-50 mb-2">{item.title}</h3>
@@ -61,12 +88,12 @@ const Academics = () => {
                   <span className="text-blue-400 font-medium">{item.percentage}</span>
                 </div>
                 <div className="w-full bg-richblack-700 rounded-full h-2">
-                  <div 
-                    className="bg-blue-400 h-2 rounded-full" 
-                    style={{ 
-                      width: item.percentage.includes('%') 
-                        ? item.percentage 
-                        : '85%' // Default for CGPA
+                  <div
+                    className="bg-blue-400 h-2 rounded-full"
+                    style={{
+                      width: item.percentage.includes('%')
+                        ? item.percentage
+                        : '85%', // Default for CGPA
                     }}
                   ></div>
                 </div>
@@ -76,10 +103,10 @@ const Academics = () => {
                 <h5 className="text-richblack-50 mb-2">Year</h5>
                 <p className="text-richblack-50">{item.year}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
