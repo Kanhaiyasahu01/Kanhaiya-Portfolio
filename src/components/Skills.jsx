@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import techstackImg from "../assets/techstack.png"
+import techstackImg from "../assets/techstack (2).png"
 
 import C from "../assets/stack/c.png"
 import Cpp from "../assets/stack/cpp.png"
 import DSA from "../assets/stack/DSA.png"
-import bashImg from "../assets/stack/Bash.svg";
 import cssPng from "../assets/stack/CSS.png";
 import ExpressPng from "../assets/stack/Express.png";
 import gitSvg from "../assets/stack/Git.svg";
@@ -14,7 +13,7 @@ import HTML from "../assets/stack/HTML.png";
 import Javascript from "../assets/stack/Javascript.svg";
 import MongoDB from "../assets/stack/MongoDB.svg";
 import Next from "../assets/stack/Next.svg";
-import NodeJs from "../../public/NodeJs.svg"
+import NodeJs from "../assets/stack/NodeJs.svg"
 import ReactPng from "../assets/stack/React.png";
 import Redux from "../assets/stack/Redux.svg";
 import Tailwind from "../assets/stack/Tailwind.png";
@@ -98,7 +97,7 @@ const Skills = () => {
             <div className="absolute inset-0 bg-gradient-radial from-purple-500 to-transparent rounded-full blur-md opacity-50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="rounded-full flex items-center justify-center">
-                <img src={techstackImg} alt="Tech Stack" className="w-full h-full object-contain opacity-50 " />
+                <img src={techstackImg} alt="Tech Stack" loading="lazy" className="w-full h-full object-contain opacity-50 " />
               </div>
             </div>
           </motion.div>

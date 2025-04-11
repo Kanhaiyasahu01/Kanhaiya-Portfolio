@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import image1 from "../../../public/NodeJs.svg";
+import image1 from "../../assets/stack/NodeJs.svg";
 import image2 from "../../assets/stack/MongoDB.svg";
 import image3 from "../../assets/stack/Express.png";
 import image4 from "../../assets/stack/react-icon.svg";
@@ -41,6 +41,7 @@ const CircularAnimation = () => {
                             className="absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full"
                             style={{ zIndex: positionIndex === 3 ? 10 : 5 }} // Keep bigger image on top
                             animate={{ x, y, scale, opacity: positionIndex === 3 ? 1 : 0.7 }}
+                            loading="lazy"
                             transition={{ duration: 1.2 }}
                         />
                     );

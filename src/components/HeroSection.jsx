@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 // import profileImage from "../assets/Profile.jpg";
-import profileImage from "../assets/userAsset/Profile.jpg";
+import profileImage from "../assets/userAsset/Profile (1).jpg";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 import { TypeAnimation } from "react-type-animation";
-import homebg from "../assets/home-bg.jpg";
 import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
@@ -155,6 +154,7 @@ export const HeroSection = () => {
             <img
               src={profileImage}
               alt="Profile"
+              loading="lazy"
               className="w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 object-cover"
             />
           </div>

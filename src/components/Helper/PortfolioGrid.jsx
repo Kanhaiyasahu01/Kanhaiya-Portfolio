@@ -16,7 +16,7 @@ import gitSvg from "../../assets/stack/Git.svg";
 import HTML from "../../assets/stack/HTML.png";
 import Javascript from "../../assets/stack/Javascript.svg";
 import MongoDB from "../../assets/stack/MongoDB.svg";
-import NodeJs from "../../../public/NodeJs.svg"
+import NodeJs from "../../assets/stack/NodeJs.svg";
 import ReactPng from "../../assets/stack/React.png";
 import Redux from "../../assets/stack/Redux.svg";
 import Tailwind from "../../assets/stack/Tailwind.png";
@@ -82,6 +82,7 @@ const PortfolioGrid = () => {
                   <img
                     src={project.img}
                     alt="project"
+                    loading="lazy"
                     className="w-full h-full object-cover hover:brightness-110 transition-all opacity-90"
                   />
                 </div>
@@ -151,6 +152,7 @@ const PortfolioGrid = () => {
               <motion.img
                 src={Globe}
                 alt="globe"
+                loading="lazy"
                 animate={{ rotate: 360 }}
                 transition={{
                   repeat: Infinity,

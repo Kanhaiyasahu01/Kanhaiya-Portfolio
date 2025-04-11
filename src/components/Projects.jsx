@@ -331,6 +331,7 @@ export const Projects = () => {
                       <img 
                         src={projects[activeProject].image} 
                         alt={projects[activeProject].title} 
+                        loading='lazy'
                         className="relative w-full h-auto object-cover border-4 border-richblack-800"
                       />
                       </div>

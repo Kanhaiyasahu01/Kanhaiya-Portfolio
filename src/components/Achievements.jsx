@@ -106,7 +106,7 @@ export default function Achievements() {
           {achievements.map((achievement, index) => (
             <div key={achievement.id} className="px-4 py-2 h-full">
               <div 
-                className={`relative overflow-hidden bg-gradient-to-r ${achievement.color} rounded-xl shadow-xl p-6 h-72 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:border-2 hover:border-teal-400 ${achievement.linkto ? 'cursor-pointer' : ''}`}
+                className={`relative overflow-hidden bg-gradient-to-r ${achievement.color} rounded-xl shadow-xl p-6 h-72 transition-all duration-300 transform hover:scale-105  hover:border hover:border-richblack-100 border-opacity-50 ${achievement.linkto ? 'cursor-pointer' : ''}`}
                 onClick={() => achievement.linkto && window.open(achievement.linkto, '_blank')}
               >
                 {/* Link Icon */}
