@@ -246,9 +246,8 @@ export const Projects = () => {
   const currentBorderColor = getBorderColor(projects[activeProject].gradient);
 
   return (
-    <div className=" text-white py-2 mb-8">
-
-<div className="absolute inset-0 overflow-hidden z-0">
+    <div className="text-white py-2 mb-8">
+      <div className="absolute inset-0 overflow-hidden z-0">
         {/* Large blue gradient circle/blob */}
         <div className="absolute top-16 -left-20 w-96 h-96 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-700/20 blur-3xl"></div>
         
@@ -297,11 +296,11 @@ export const Projects = () => {
           {/* Left side - Laptop Frame with Project Image */}
           <div className="w-full lg:w-3/5 relative border border-richblack-100 border-opacity-50 rounded-2xl">
             {/* Outer laptop frame - dark border with rounded corners */}
-            <div className="relative rounded-2xl overflow-hidden bg-black border-8 border-richblack-800 shadow-xl h-[200px] md:h-[450px]">
+            <div className="relative rounded-2xl overflow-hidden bg-black border-8 border-richblack-800 shadow-xl h-[200px] md:h-[400px] lg:h-[450px]">
               {/* Laptop inner frame with dynamic gradient background */}
-              <div className={`relative rounded-lg overflow-hidden bg-gradient-to-b ${currentGradient} h-full md:h-full `}>
+              <div className={`relative rounded-lg overflow-hidden bg-gradient-to-b ${currentGradient} h-full`}>
                 {/* Dynamic content header bar */}
-                <div className='flex justify-center items-center mt-3 text-xl p-5 text-richblack-50'>
+                <div className='flex justify-center items-center pt-3 pb-1 text-xl px-5 text-richblack-50'>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeProject}
@@ -311,12 +310,14 @@ export const Projects = () => {
                       variants={featureVariants}
                       className="text-center"
                     >
-                      <p className="font-semibold text-2xl">{projects[activeProject].title}</p>
-                      <p className="text-sm opacity-80 mt-1">Built with {projects[activeProject].technologies.slice(0, 3).join(", ")}</p>
+                      <p className="font-semibold text-lg md:text-2xl lg:text-3xl">{projects[activeProject].title}</p>
+                      <p className="text-xs md:text-lg opacity-80 ">Built with {projects[activeProject].technologies.slice(0, 3).join(", ")}</p>
                     </motion.div>
                   </AnimatePresence>
                 </div>
-                <div className="absolute overflow-hidden rounded-lg shadow-inner h-full flex items-end -bottom-5 px-5 hover:p-1 hover:-rotate-2 transition-all duration-300">
+                
+                {/* Container for the project image - adjusted height */}
+                <div className="absolute inset-0 top-16 md:top-20 lg:top-24 overflow-hidden px-5 flex items-center justify-center">
                   {/* Actual screen content */}
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -325,28 +326,32 @@ export const Projects = () => {
                       animate="visible"
                       exit="hidden"
                       variants={imageVariants}
-                      className="w-full relative bg-black overflow-hidden rounded-md"
+                      className="w-full h-full relative bg-black overflow-hidden rounded-md"
                     >
-                      <div className='border border-richblack-100 border-opacity-50'>
-                      <img 
-                        src={projects[activeProject].image} 
-                        alt={projects[activeProject].title} 
-                        loading='lazy'
-                        className="relative w-full h-auto object-cover border-4 border-richblack-800"
-                      />
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <div className="flex items-center justify-center">
-                          <motion.a 
-                            href={projects[activeProject].liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`${currentBgOpacity} backdrop-blur-sm mb-2 rounded-full px-4 py-2 md:px-6 md:py-3 text-white text-sm md:text-base font-medium flex items-center gap-2`}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            See Website <ArrowRight size={16} className="font-bold" />
-                          </motion.a>
+                      <div className='border border-richblack-100 border-opacity-50 h-full'>
+                        <div className="w-full h-full relative">
+                          <img 
+                            src={projects[activeProject].image} 
+                            alt={projects[activeProject].title} 
+                            loading='lazy'
+                            className="w-full h-[130px] md:h-[290px] lg:h-[330px] object-cover border-4 border-richblack-800"
+                          />
+                          
+                          {/* Button overlay positioned at bottom */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 md:p-4">
+                            <div className="flex items-center justify-center">
+                              <motion.a 
+                                href={projects[activeProject].liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`${currentBgOpacity} backdrop-blur-sm rounded-full px-3 py-1 md:px-6 md:py-3 text-white text-xs md:text-base font-medium flex items-center gap-2`}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                              >
+                                See Website <ArrowRight size={16} className="font-bold" />
+                              </motion.a>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </motion.div>
@@ -432,7 +437,7 @@ export const Projects = () => {
                     href={projects[activeProject].github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${currentIconColor} hover:text-white transition-colors border-${currentIconColor} border rounded-full p-1 opacity-80`}
+                    className={`${currentIconColor} hover:text-white transition-colors border border-current rounded-full p-1 opacity-80`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -442,7 +447,7 @@ export const Projects = () => {
                     href={projects[activeProject].liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${currentIconColor} hover:text-white transition-colors border-${currentIconColor} border rounded-full p-1 opacity-80`}
+                    className={`${currentIconColor} hover:text-white transition-colors border border-current rounded-full p-1 opacity-80`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >

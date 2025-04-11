@@ -251,12 +251,12 @@ const PortfolioGrid = () => {
             <div className="mt-8">
               <a
                 href="mailto:kanhaiyasahutools@gmail.com"
-                className="bg-zinc-900 border border-zinc-700 border-opacity-50 hover:bg-zinc-800 text-richblack-100 py-3 px-6 rounded-full flex items-center justify-center mx-auto"
+                className="  bg-zinc-900 border border-zinc-700 border-opacity-50 hover:bg-zinc-800 text-richblack-100 p-1 md:py-3 md:px-6 rounded-full flex items-center justify-center mx-auto break-all"
                 role="button"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
+                  className="h-5 w-5 md:h-10 md:w-10 lg:h-7 lg:w-7 mr-2"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >

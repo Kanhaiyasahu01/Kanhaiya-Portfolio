@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import techstackImg from "../assets/techstack (2).png"
+import techstackImg from "../assets/techstack (2).png";
 
-import C from "../assets/stack/c.png"
-import Cpp from "../assets/stack/cpp.png"
-import DSA from "../assets/stack/DSA.png"
+import C from "../assets/stack/c.png";
+import Cpp from "../assets/stack/cpp.png";
+import DSA from "../assets/stack/DSA.png";
 import cssPng from "../assets/stack/CSS.png";
 import ExpressPng from "../assets/stack/Express.png";
 import gitSvg from "../assets/stack/Git.svg";
@@ -13,7 +13,7 @@ import HTML from "../assets/stack/HTML.png";
 import Javascript from "../assets/stack/Javascript.svg";
 import MongoDB from "../assets/stack/MongoDB.svg";
 import Next from "../assets/stack/Next.svg";
-import NodeJs from "../assets/stack/NodeJs.svg"
+import NodeJs from "../assets/stack/NodeJs.svg";
 import ReactPng from "../assets/stack/React.png";
 import Redux from "../assets/stack/Redux.svg";
 import Tailwind from "../assets/stack/Tailwind.png";
@@ -22,8 +22,20 @@ import python from "../assets/stack/python.jpg";
 import django from "../assets/stack/django.png";
 import Bootstrap from "../assets/stack/Bootstrap.svg";
 
-
 const Skills = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    // Updated to use medium breakpoint (md) which is typically 768px
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    setIsSmallScreen(mediaQuery.matches);
+    
+    const handleResize = () => setIsSmallScreen(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
+
   const skills = [
     { name: "C", icon: C },
     { name: "C++", icon: Cpp },
@@ -55,55 +67,78 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05
-      }
-    }
+        staggerChildren: 0.05,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
-      opacity: 1
-    }
+      opacity: 1,
+    },
   };
 
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
-  
+
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
-    <div ref={ref} className=" text-white flex flex-col items-center py-8 mb-10 h-full ">
-        <div className="absolute inset-0 overflow-hidden z-0">
-        {/* Large blue gradient circle/blob */}
+    <div
+      ref={ref}
+      className="text-white flex flex-col items-center py-8 mb-10 h-full"
+    >
+      <div className="absolute inset-0 overflow-hidden z-0">
+        {/* Background gradient blobs */}
         <div className="absolute top-16 -left-20 w-96 h-96 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-700/20 blur-3xl"></div>
-        
-        {/* Smaller purple-blue gradient blob */}
         <div className="absolute bottom-10 -left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-richblue-600/20 to-blue-400/10 blur-3xl"></div>
-        
-        {/* Medium size blue gradient in center-right */}
         <div className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-gradient-to-bl from-blue-300/20 to-indigo-500/10 blur-3xl"></div>
       </div>
+
       <div className="w-full max-w-5xl px-4 z-10">
         <div className="flex flex-col items-center mb-4 relative">
-          <motion.div
-            className="relative w-72 h-72 mb-[-6rem] z-1" // Increased size and negative margin to overlap
-            style={{ rotate }} // Only the image rotates
-          >
-            <div className="absolute inset-0 bg-gradient-radial from-purple-500 to-transparent rounded-full blur-md opacity-50"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="rounded-full flex items-center justify-center">
-                <img src={techstackImg} alt="Tech Stack" loading="lazy" className="w-full h-full object-contain opacity-50 " />
+          {/* Conditionally render static or animated version based on screen size */}
+          {isSmallScreen ? (
+            // Static version for small screens
+            <div className="relative w-64 h-64 mb-6 z-1">
+              <div className="absolute inset-0 bg-gradient-radial from-purple-500 to-transparent rounded-full blur-md opacity-50"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="rounded-full flex items-center justify-center">
+                  <img
+                    src={techstackImg}
+                    alt="Tech Stack"
+                    loading="lazy"
+                    className="w-full h-full object-contain opacity-50"
+                  />
+                </div>
               </div>
             </div>
-          </motion.div>
-          
-          {/* Text container - no rotation applied */}
-          <div className="text-center  z-10"> {/* Added margin-top to push text down */}
+          ) : (
+            // Animated version for medium and larger screens
+            <motion.div
+              className="relative w-72 h-72 mb-[-6rem] z-1"
+              style={{ rotate }}
+            >
+              <div className="absolute inset-0 bg-gradient-radial from-purple-500 to-transparent rounded-full blur-md opacity-50"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="rounded-full flex items-center justify-center">
+                  <img
+                    src={techstackImg}
+                    alt="Tech Stack"
+                    loading="lazy"
+                    className="w-full h-full object-contain opacity-50"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          <div className="text-center z-10">
             <motion.p
               className="text-richblack-100 uppercase tracking-widest text-sm"
               initial={{ opacity: 0 }}
@@ -112,7 +147,7 @@ const Skills = () => {
             >
               I CONSTANTLY TRY TO IMPROVE
             </motion.p>
-            
+
             <motion.h2
               className="text-5xl font-bold mt-2 mb-8 text-richblack-50 bg-clip-text"
               initial={{ y: 20, opacity: 0 }}
@@ -124,7 +159,7 @@ const Skills = () => {
           </div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="flex flex-wrap justify-center gap-3"
           variants={containerVariants}
           initial="hidden"
@@ -133,13 +168,17 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              className="bg-zinc-800 border border-richblack-200 hover:shadow-lg hover:border-blue-400 hover:shadow-blue-500/30 group  border-opacity-50 rounded-full px-4 py-2 flex items-center space-x-2 shadow-lg"
-              whileHover={{ scale: 1.10, rotate: [0, -3, 1, -3, 0] }}
-              whileTap={{ scale: 0.95 }}
+              className="bg-zinc-800 border border-richblack-200 hover:shadow-lg hover:border-blue-400 hover:shadow-blue-500/30 group border-opacity-50 rounded-full px-4 py-2 flex items-center space-x-2 shadow-lg"
+              whileHover={!isSmallScreen ? { scale: 1.1, rotate: [0, -3, 1, -3, 0] } : {}}
+              whileTap={!isSmallScreen ? { scale: 0.95 } : {}}
               variants={itemVariants}
             >
               <span className="w-6 h-6">
-                <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain" />
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-full h-full object-contain"
+                />
               </span>
               <span className="text-white">{skill.name}</span>
             </motion.div>

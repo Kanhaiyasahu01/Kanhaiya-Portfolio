@@ -38,7 +38,7 @@ export const About = () => {
       >
         {/* Left: Animated Circular Images */}
         <motion.div
-          className="relative w-full md:w-1/2 flex justify-center"
+          className="relative w-full md:w-1/2 flex justify-center mt-8 mx-2 mb-4 md:mt-10  lg:mt-4 lg:mb-0 lg:mx-0"
           variants={fadeInUp}
         >
           <CircularAnimation />
