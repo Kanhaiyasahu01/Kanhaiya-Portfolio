@@ -317,7 +317,7 @@ export const Projects = () => {
                 </div>
                 
                 {/* Container for the project image - adjusted height */}
-                <div className="absolute inset-0 top-16 md:top-20 lg:top-24 overflow-hidden px-5 flex items-center justify-center">
+                <div className="absolute inset-0 top-16 md:top-20 lg:top-24 px-5 flex items-center justify-center">
                   {/* Actual screen content */}
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -327,6 +327,11 @@ export const Projects = () => {
                       exit="hidden"
                       variants={imageVariants}
                       className="w-full h-full relative bg-black overflow-hidden rounded-md"
+                      whileHover={{ 
+                        scale: 1.05, 
+                        rotate: -2,
+                        transition: { duration: 0.3 }
+                      }}
                     >
                       <div className='border border-richblack-100 border-opacity-50 h-full'>
                         <div className="w-full h-full relative">
