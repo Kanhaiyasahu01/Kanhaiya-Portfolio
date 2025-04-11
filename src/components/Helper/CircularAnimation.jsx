@@ -6,9 +6,10 @@ import image2 from "../../assets/stack/MongoDB.svg";
 import image3 from "../../assets/stack/Express.png";
 import image4 from "../../assets/stack/react-icon.svg";
 
-const images = [image1, image2, image3, image4];
 
 const CircularAnimation = () => {
+    const images = [image1, image2, image3, image4];
+
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
