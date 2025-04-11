@@ -14,7 +14,7 @@ import HTML from "../assets/stack/HTML.png";
 import Javascript from "../assets/stack/Javascript.svg";
 import MongoDB from "../assets/stack/MongoDB.svg";
 import Next from "../assets/stack/Next.svg";
-import NodeJs from "../assets/stack/NodeJs.svg";
+import NodeJs from "../../public/Nodejs.svg"
 import ReactPng from "../assets/stack/React.png";
 import Redux from "../assets/stack/Redux.svg";
 import Tailwind from "../assets/stack/Tailwind.png";

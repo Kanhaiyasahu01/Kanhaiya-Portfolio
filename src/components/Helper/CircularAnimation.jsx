@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import image1 from "../../assets/stack/Nodejs.svg";
+import image1 from "../../../public/Nodejs.svg";
 import image2 from "../../assets/stack/MongoDB.svg";
 import image3 from "../../assets/stack/Express.png";
 import image4 from "../../assets/stack/react-icon.svg";
