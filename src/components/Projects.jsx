@@ -6,7 +6,7 @@ import { ArrowRight, Github, ExternalLink, ChevronLeft, ChevronRight } from 'luc
 import p1 from "../assets/project/aiContentCrafter.png";
 import p2 from "../assets/project/assetmate.png";
 import p3 from "../assets/project/vaayu.png";
-import p4 from "../assets/project/studyNotion2.png";
+import p4 from "../assets/project/studyNotionResize.png";
 
 export const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
