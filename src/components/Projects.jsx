@@ -39,7 +39,7 @@ export const Projects = () => {
       ],
       gradient: "zinc", // green
       github: "https://github.com/Kanhaiyasahu01/AssetMate-TLE_Smashers-",
-      liveUrl: "https://assetmate-kanhaiya.netlify.app/"
+      liveUrl: "https://assetmate-kanhaiya01.netlify.app/"
     },
     {
       "title": "Vaayu",
