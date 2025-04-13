@@ -38,7 +38,7 @@ export const Projects = () => {
         "Provides secure authentication and role-based access for Admin, Sales, and other users."
       ],
       gradient: "zinc", // green
-      github: "https://github.com/Kanhaiyasahu01/AssetMate-TLE_Smashers-",
+      github: "https://github.com/Kanhaiyasahu01/Manage-Your-Assets",
       liveUrl: "https://assetmate-kanhaiya01.netlify.app/"
     },
     {
