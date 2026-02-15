@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CircularAnimation from "./Helper/CircularAnimation";
 
 export const About = () => {
+  // State for LeetCode stats
+  const [leetcodeStats, setLeetcodeStats] = useState({
+    rating: 1847,
+    ranking: 'Knight',
+    totalSolved: 400,
+    easySolved: 150,
+    mediumSolved: 200,
+    hardSolved: 50,
+    loading: true
+  });
+
+  // Fetch LeetCode stats
+  useEffect(() => {
+    const fetchLeetCodeStats = async () => {
+      try {
+        // Using LeetCode API proxy (there are several available)
+        const response = await fetch('https://leetcode-api-faisalshohag.vercel.app/kanhaiyasahu01');
+        const data = await response.json();
+        
+        if (data && !data.errors) {
+          setLeetcodeStats({
+            rating: data.contestRating || 1847,
+            ranking: data.contestRanking || 'Knight',
+            totalSolved: data.totalSolved || 400,
+            easySolved: data.easySolved || 150,
+            mediumSolved: data.mediumSolved || 200,
+            hardSolved: data.hardSolved || 50,
+            loading: false
+          });
+        } else {
+          setLeetcodeStats(prev => ({ ...prev, loading: false }));
+        }
+      } catch (error) {
+        console.log('Using fallback LeetCode stats');
+        setLeetcodeStats(prev => ({ ...prev, loading: false }));
+      }
+    };
+
+    fetchLeetCodeStats();
+  }, []);
+
   // Animation variants for different sections
   const fadeInUp = {
     initial: { opacity: 0, y: 50 },
@@ -53,7 +94,7 @@ export const About = () => {
             className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2"
             variants={fadeInUp}
           >
-            About <span className="text-white">Me</span>
+            About <span className="text-richblack-50">Me</span>
           </motion.h2>
           <motion.p
             className="text-richblack-50 mb-6 leading-relaxed"
@@ -65,57 +106,7 @@ export const About = () => {
             className="space-y-4"
             variants={staggerChildren}
           >
-            {/* Frontend Developer Card */}
-            <motion.div
-              className="relative overflow-hidden bg-richblack-800 bg-opacity-50 border border-richblack-600 rounded-lg p-5 transition-all duration-300 hover:shadow-lg hover:border-green-400 hover:shadow-green-500/30 group"
-              variants={fadeInUp}
-            >
-              <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rotate-45 transform -translate-x-1/2 -translate-y-1/2 opacity-80"></div>
-              <div className="relative z-10 text-richblack-100">
-                <div className="flex flex-wrap items-center justify-between mb-2">
-                  <h3 className="text-xl font-bold text-richblack-50">Frontend Developer</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {["React.js", "TailwindCSS", "HTML5", "CSS3"].map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs font-medium px-2 py-1 rounded-full bg-richblack-600 bg-opacity-50 border border-richblack-500 border-opacity-50 text-richblack-100"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-sm text-gray-400">
-                  I specialize in creating responsive, visually appealing, and optimized web applications using modern technologies.
-                </p>
-              </div>
-            </motion.div>
-            {/* Backend Developer Card */}
-            <motion.div
-              className="relative overflow-hidden bg-richblack-800 bg-opacity-50 border border-richblack-600 rounded-lg p-5 transition-all duration-300 hover:shadow-lg hover:border-green-400 hover:shadow-green-500/30 group"
-              variants={fadeInUp}
-            >
-              <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rotate-45 transform -translate-x-1/2 -translate-y-1/2 opacity-80"></div>
-              <div className="relative z-10 text-richblack-100">
-                <div className="flex flex-wrap items-center justify-between mb-2">
-                  <h3 className="text-xl font-bold text-richblack-50">Backend Developer</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {["Node.js", "Express.js", "MongoDB", "REST API"].map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs font-medium px-2 py-1 rounded-full bg-richblack-600 bg-opacity-50 border border-richblack-500 border-opacity-50 text-richblack-100"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-sm text-gray-400">
-                  Experienced in building scalable backend systems with efficient database management and API development.
-                </p>
-              </div>
-            </motion.div>
-            {/* Problem Solver Card */}
+                        {/* Problem Solver Card with Live LeetCode Stats */}
             <motion.div
               className="relative overflow-hidden bg-richblack-800 bg-opacity-50 border border-richblack-600 rounded-lg p-5 transition-all duration-300 hover:shadow-lg hover:border-green-400 hover:shadow-green-500/30 group"
               variants={fadeInUp}
@@ -135,11 +126,108 @@ export const About = () => {
                     ))}
                   </div>
                 </div>
+                <p className="text-sm text-gray-400 mb-4">
+                  Passionate about solving complex problems with data structures and algorithms, actively participating on competitive programming platforms.
+                </p>
+                
+                {/* LeetCode Stats - Premium Design */}
+                <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 overflow-hidden">
+                  {/* Background Pattern */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-yellow-500/5"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-orange-400/10 to-transparent rounded-full blur-2xl"></div>
+                  
+                  <div className="relative z-10">
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-3">
+                        <div className="relative">
+                          <div className="bg-gradient-to-r from-orange-500 to-yellow-500 p-3 rounded-xl">
+                            <span className="text-white text-lg font-bold">LC</span>
+                          </div>
+                          <div className="absolute -top-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-slate-800"></div>
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-bold text-white">LeetCode Profile</h4>
+                          <p className="text-sm text-slate-400">Competitive Programming</p>
+                        </div>
+                      </div>
+                      {leetcodeStats.loading && (
+                        <div className="flex items-center gap-2 bg-blue-500/20 px-3 py-1 rounded-full">
+                          <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                          <span className="text-xs text-blue-400">Live</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* Rating Card */}
+                      <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl p-4 text-center">
+                        <div className="text-3xl font-bold text-green-400 mb-1">
+                          {leetcodeStats.rating}
+                        </div>
+                        <div className="text-sm text-green-300 font-medium">Contest Rating</div>
+                        <div className="mt-2">
+                          <span className="inline-flex items-center gap-1 bg-yellow-500/20 text-yellow-400 text-xs font-semibold px-2 py-1 rounded-full border border-yellow-500/30">
+                            <span>👑</span> {leetcodeStats.ranking}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Problems Card */}
+                      <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 rounded-xl p-4 text-center">
+                        <div className="text-3xl font-bold text-blue-400 mb-1">
+                          {leetcodeStats.totalSolved}+
+                        </div>
+                        <div className="text-sm text-blue-300 font-medium">Problems Solved</div>
+                        <div className="mt-2">
+                          <span className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-400 text-xs font-semibold px-2 py-1 rounded-full border border-blue-500/30">
+                            <span>🎯</span> Active
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Achievement Bar */}
+                    <div className="mt-4 p-3 bg-slate-700/50 rounded-lg border border-slate-600/50">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-slate-300 flex items-center gap-2">
+                          <span className="w-2 h-2 bg-orange-400 rounded-full"></span>
+                          Global Ranking
+                        </span>
+                        <span className="text-orange-400 font-semibold">Top 15%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            {/* Full Stack Developer Card */}
+            <motion.div
+              className="relative overflow-hidden bg-richblack-800 bg-opacity-50 border border-richblack-600 rounded-lg p-5 transition-all duration-300 hover:shadow-lg hover:border-green-400 hover:shadow-green-500/30 group"
+              variants={fadeInUp}
+            >
+              <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-green-300 to-green-400 rotate-45 transform -translate-x-1/2 -translate-y-1/2 opacity-80"></div>
+              <div className="relative z-10 text-richblack-100">
+                <div className="flex flex-wrap items-center justify-between mb-2">
+                  <h3 className="text-xl font-bold text-richblack-50">Full Stack Developer</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {["MERN Stack", "React.js", "Node.js", "MongoDB", "TailwindCSS", "Express.js"].map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs font-medium px-2 py-1 rounded-full bg-richblack-600 bg-opacity-50 border border-richblack-500 border-opacity-50 text-richblack-100"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
                 <p className="text-sm text-gray-400">
-                  Enjoy solving problems with data structures and algorithms, actively participating on competitive programming platforms.
+                  I specialize in creating end-to-end web applications with modern technologies, from responsive frontends to scalable backend systems with efficient database management.
                 </p>
               </div>
             </motion.div>
+            
           </motion.div>
         </motion.div>
       </motion.div>

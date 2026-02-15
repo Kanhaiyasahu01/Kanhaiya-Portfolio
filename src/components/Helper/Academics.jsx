@@ -4,16 +4,16 @@ import { GraduationCap, BookOpen, Award } from 'lucide-react';
 
 const Academics = () => {
   const educationData = [
-    {
+{
       id: 1,
-      title: "10th Grade",
-      school: "Apex International School Kargi Road Kota",
-      year: "2019-2020",
-      percentage: "96.8%",
-      achievements: "Class Captain",
-      icon: <BookOpen size={48} className="text-blue-400" />
+      title: "B.Tech IT",
+      school: "Government Engineering College Bilaspur",
+      year: "2022-2026",
+      percentage: "8.2 CGPA",
+      achievements: "Dean's List, Project Excellence Award, Technical Club Lead",
+      icon: <GraduationCap size={48} className="text-purple-400" />
     },
-    {
+        {
       id: 2,
       title: "12th Grade",
       school: "Swami Atmanand School Kargi Road Kota",
@@ -24,13 +24,14 @@ const Academics = () => {
     },
     {
       id: 3,
-      title: "B.Tech IT",
-      school: "Government Engineering College Bilaspur",
-      year: "2022-2026",
-      percentage: "8.6 CGPA",
-      achievements: "Dean's List, Project Excellence Award, Technical Club Lead",
-      icon: <GraduationCap size={48} className="text-purple-400" />
-    }
+      title: "10th Grade",
+      school: "Apex International School Kargi Road Kota",
+      year: "2019-2020",
+      percentage: "96.8%",
+      achievements: "Class Captain",
+      icon: <BookOpen size={48} className="text-blue-400" />
+    },
+
   ];
 
   // Animation variants

@@ -9,6 +9,16 @@ export default function Achievements() {
   const achievements = [
     {
       id: 1,
+      icon: "🏆",
+      title: "Smart India Hackathon Winner",
+      description: "Won Smart India Hackathon 2025 by building a Low-cost ERP system for higher institutions among 500+ participants.",
+      stat: "Winner",
+      suffix: "2025",
+      linkto: "https://www.sih.gov.in/",
+      color: "from-blue-800 to-richblack-900"
+    },
+    {
+      id: 2,
       icon: "💻",
       title: "Active Developer",
       description: "Dedicated to enhancing technical skills and creativity by contributing to real world projects.",
@@ -18,7 +28,7 @@ export default function Achievements() {
       color: "from-blue-800 to-richblack-900"
     },
     {
-      id: 2,
+      id: 3,
       icon: "🚀",
       title: "LeetCode (Problem Solver)",
       description: "Solved 500+ DSA problems on Leetcode and 1000+ problems on platforms like LC, GFG, Codeforces, Codechef etc.",
@@ -27,7 +37,7 @@ export default function Achievements() {
       color: "from-blue-800 to-richblack-900"
     },
     {
-      id: 3,
+      id: 4,
       icon: "🏆",
       title: "Ideathon Champion",
       description: "Achieved top honors with a 1st Rank in the Ideathon at LCIT College, Bilaspur.",
@@ -37,7 +47,7 @@ export default function Achievements() {
       color: "from-blue-800 to-richblack-900"
     },
     {
-      id: 4,
+      id: 5,
       icon: "🥈",
       title: "Hackathon Runner-up",
       description: "Claimed 2nd position in the 'IEEE ICECCT WAIT NOW' project competition by CSVTU Bhilai.",
@@ -47,7 +57,7 @@ export default function Achievements() {
       color: "from-blue-800 to-richblack-900"
     },
     {
-      id: 5,
+      id: 6,
       icon: "🌟",
       title: "App Development Lead",
       description: "Selected for the position of App Development Lead by the Google Developer Student Club, Bilaspur.",

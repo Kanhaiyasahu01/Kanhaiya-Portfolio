@@ -7,12 +7,27 @@ import p1 from "../assets/project/aiContentCrafter.png";
 import p2 from "../assets/project/assetmate.png";
 import p3 from "../assets/project/vaayu.png";
 import p4 from "../assets/project/studyNotionResize.png";
+import p5 from "../assets/project/easyerp.png";
 
 export const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
 
   // Project data
   const projects = [
+    {
+      title: "Easy ERP - Smart India Hackathon",
+      description: "Winner of Smart India Hackathon 2025.",
+      image: p5,
+      technologies: ["Next.js", "Google Sheets", "Gmail", "Drive", "Google Forms"],
+      features: [
+        "Architected a low-cost, serverless ERP using Next.js, Google Sheets as the database, and Google Apps Script, reducing deployment and maintenance costs by 90% compared to traditional ERP systems.",
+        "Developed a smart attendance system with geo-fencing, location and photo verification, reducing errors by 50%.",
+        "Integrated existing Google Workspace tools to automate workflows, cutting development time and costs by 40%."
+      ],
+      gradient: "blue",
+      github: "https://github.com/Kanhaiyasahu01",
+      liveUrl: "https://easy-erp-tle-smashers.kanhaiyalalsahu.me/"
+    },
     {
       title: "AI Content Crafter",
       description: "Developed an AI-powered platform to generate tailored content from user prompts using Next.js.",
@@ -262,7 +277,7 @@ export const Projects = () => {
         {/* Header with title and nav buttons */}
         <div className="flex flex-col w-1/2 sm:flex-row sm:items-center justify-between gap-2 z-10 mt-3">
           <div className="relative">
-            <h2 className="text-3xl md:text-5xl font-bold mb-2">My Projects</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-2 text-richblack-50">My Projects</h2>
             <div className={`h-1 w-24 ${currentAccentColor}`}></div>
           </div>
 

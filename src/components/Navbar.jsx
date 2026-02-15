@@ -30,6 +30,16 @@ export const Navbar = () => {
           >
             Home
           </NavLink>
+           <NavLink
+            to="/experience"
+            className={({ isActive }) =>
+              isActive
+                ? "text-blue-100 text-lg"
+                : "text-white font-thin text-lg hover:text-blue-500 transition-all"
+            }
+          >
+            Experience
+          </NavLink>
           <NavLink
             to="/about"
             className={({ isActive }) =>
@@ -40,6 +50,7 @@ export const Navbar = () => {
           >
             About
           </NavLink>
+         
           <NavLink
             to="/skills"
             className={({ isActive }) =>
@@ -100,6 +111,17 @@ export const Navbar = () => {
             >
               Home
             </NavLink>
+             <NavLink
+              to="/experience"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-100 border-b-2 border-blue-500 pb-1 text-lg"
+                  : "text-white font-thin text-lg hover:text-blue-500 transition-all"
+              }
+              onClick={toggleMobileMenu}
+            >
+              Experience
+            </NavLink>
             <NavLink
               to="/about"
               className={({ isActive }) =>
@@ -111,6 +133,7 @@ export const Navbar = () => {
             >
               About
             </NavLink>
+           
             <NavLink
               to="/skills"
               className={({ isActive }) =>

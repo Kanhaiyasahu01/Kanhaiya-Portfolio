@@ -47,6 +47,9 @@ const Footer = () => {
           <Link to={'/'} className="hover:text-richblack-yellow transition">
             Home
           </Link>
+            <Link to={'/experience'} className="hover:text-richblack-yellow transition">
+            Experience
+          </Link>
           <Link to={'/about'} className="hover:text-richblack-yellow transition">
             About
           </Link>

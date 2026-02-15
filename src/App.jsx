@@ -5,7 +5,9 @@ import Achievements from "./components/Achievements";
 import { Home } from "./components/Home";
 import { Navbar } from "./components/Navbar";
 import { Projects } from "./components/Projects";
+import { Experience } from "./components/Experience";
 import { Route, Routes } from "react-router-dom";
+import ScrollToTop from "./components/Helper/ScrollToTop";
 
 import "./App.css";
 import Footer from "./components/Footer";
@@ -17,11 +19,13 @@ function App() {
       <div>
         <div className="w-full min-h-screen text-white">
           {/* Gradient Background Section */}
-          <div className=" h-ful bg-richblack-900 ">
+          <div className=" h-full bg-richblack-900 ">
+            <ScrollToTop />
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutMain />} />
+              <Route path="/experience" element={<Experience />} />
               <Route path="/achievements" element={<Achievements />} />
               <Route path="/skills" element={<SkillMain />} />
               <Route path="/projects" element={<Projects />} />
